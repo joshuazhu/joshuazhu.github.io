@@ -90,19 +90,17 @@
 
 
 
-<meta name="description" content="DefinitionDefines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary indenpendently from clients that use it. Components Client: this class">
+<meta name="description" content="Anytime you use types that have a Dispose() method, it’s your responsibility to release those resources by calling Dispose(). Best way to ensure that Dispose() always gets called is to utilize the us">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Behavioral Design Patterns 2 -- Strategy pattern">
-<meta property="og:url" content="http://yoursite.com/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/index.html">
+<meta property="og:title" content="Effective C# -- 11. Utilize using and try/finally for Resource Cleanup">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/Effective C Sharp -- 11. Utilize using and try and finally for Resource Cleanup/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="DefinitionDefines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary indenpendently from clients that use it. Components Client: this class">
-<meta property="og:image" content="https://www.codeproject.com/KB/architecture/455228/strategy.jpg">
-<meta property="og:updated_time" content="2017-04-25T09:39:11.962Z">
+<meta property="og:description" content="Anytime you use types that have a Dispose() method, it’s your responsibility to release those resources by calling Dispose(). Best way to ensure that Dispose() always gets called is to utilize the us">
+<meta property="og:updated_time" content="2017-04-25T13:13:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Behavioral Design Patterns 2 -- Strategy pattern">
-<meta name="twitter:description" content="DefinitionDefines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary indenpendently from clients that use it. Components Client: this class">
-<meta name="twitter:image" content="https://www.codeproject.com/KB/architecture/455228/strategy.jpg">
+<meta name="twitter:title" content="Effective C# -- 11. Utilize using and try/finally for Resource Cleanup">
+<meta name="twitter:description" content="Anytime you use types that have a Dispose() method, it’s your responsibility to release those resources by calling Dispose(). Best way to ensure that Dispose() always gets called is to utilize the us">
 
 
 
@@ -130,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 11. Utilize using and try and finally for Resource Cleanup/"/>
 
 
 
 
 
-  <title>Behavioral Design Patterns 2 -- Strategy pattern | Josh's Cabinet</title>
+  <title>Effective C# -- 11. Utilize using and try/finally for Resource Cleanup | Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -265,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 11. Utilize using and try and finally for Resource Cleanup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Josh Zhu">
@@ -286,7 +284,7 @@
             
             
               
-                Behavioral Design Patterns 2 -- Strategy pattern
+                Effective C# -- 11. Utilize using and try/finally for Resource Cleanup
               
             
           </h1>
@@ -301,7 +299,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T20:18:42+10:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T23:10:07+10:00">
                 2017-04-25
               </time>
             
@@ -324,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
-                    <span itemprop="name">Design Patterns</span>
+                  <a href="/categories/C-Sharp/" itemprop="url" rel="index">
+                    <span itemprop="name">C Sharp</span>
                   </a>
                 </span>
 
@@ -358,20 +356,38 @@
       
 
       
-        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the <strong>algorithm vary indenpendently</strong> from clients that use it.</p>
-<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ol>
-<li><strong>Client</strong>: this class uses interchangeable algorithms. It maintains <strong>a reference to StrategyBase object</strong>. </li>
-<li><strong>StrategyBase</strong>: declares an <strong>interface</strong> common to all supported algorithms.</li>
-<li><strong>ConcreteStrategy</strong>:<strong>inherited</strong> from the StrategyBase Class, provides a different algorithm.</li>
-</ol>
-<p><img src="https://www.codeproject.com/KB/architecture/455228/strategy.jpg" alt="Strategy pattern uml"></p>
+        <ol>
+<li><p>Anytime you use types that have a <strong>Dispose()</strong> method, it’s your responsibility to <strong>release those resources by calling Dispose()</strong>. <strong>Best way</strong> to ensure that <strong>Dispose()</strong> always gets called is to utilize the <strong>using</strong> statement or a <strong>try/finally block</strong>.</p>
+</li>
+<li><ul>
+<li>All types own unmanaged resources <strong>implement</strong> the <strong>IDisposable interface</strong>.</li>
+<li>They all created a <strong>finalizer</strong>.</li>
+<li>Nonmemory resources are freed later when finalizer get chance to execute.</li>
+</ul>
+</li>
+<li><p>The using statement ensures that Dispose() is called. Using a using statement, the C# compiler <strong>generates a try/finally block</strong> around each object.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Example Using clause:</span></div><div class="line"><span class="keyword">using</span> (myConnection = <span class="keyword">new</span> SqlConnection(connString))</div><div class="line">&#123;</div><div class="line">    myConnection.Open();</div><div class="line">&#125;</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// example Try / Catch block:</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">    myConnection = <span class="keyword">new</span> SqlConnection(connString);</div><div class="line">    myConnection.Open();</div><div class="line">&#125;</div><div class="line"><span class="keyword">finally</span></div><div class="line">&#123;</div><div class="line">    myConnection.Dispose();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>The using statement <strong>works only</strong> if the compile-time type supports the <strong>IDisposable</strong> interface, <strong>as</strong> clause will safely dispose of objects that might/might not implement IDisposable.</p>
 <a id="more"></a>
-<h2 id="Sample-code"><a href="#Sample-code" class="headerlink" title="Sample code"></a>Sample code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">Istrategy</span> &#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>)</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Strategy1</span> <span class="title">implements</span> <span class="title">Istrategy</span>&#123; </div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		System.<span class="keyword">out</span>.println(<span class="string">"operate 1"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Strategy2</span> <span class="title">implements</span> <span class="title">Istrategy</span> &#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		System.<span class="keyword">out</span>.println(<span class="string">"operate 2"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Context</span> &#123;</div><div class="line">	<span class="keyword">private</span> Istrategy strategy;</div><div class="line"> </div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Context</span>(<span class="params">Istrategy strategy</span>) </span>&#123;</div><div class="line">		<span class="keyword">this</span>.strategy = strategy;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">this</span>.strategy.operate();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Client</span> &#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params"><span class="keyword">string</span> args[]</span>) </span>&#123;</div><div class="line">		Context context;</div><div class="line">		context = <span class="keyword">new</span> Context (<span class="keyword">new</span> Strategy1());</div><div class="line">		context.operate();</div><div class="line"></div><div class="line">		context = <span class="keyword">new</span> Context (<span class="keyword">new</span> Strategy2());</div><div class="line">		context.operate();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><ol>
-<li>Provides design where <strong>client</strong> and <strong>strategies</strong> are <strong>loosely coupled</strong>.</li>
-<li><strong>Easy</strong> to <strong>add</strong> or <strong>replace</strong> or <strong>reuse</strong> clients or strategies.</li>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// The correct fix.</span></div><div class="line"><span class="comment">// Object may or may not support IDisposable.</span></div><div class="line"><span class="keyword">object</span> obj = Factory.CreateResource();</div><div class="line"><span class="keyword">using</span> (obj <span class="keyword">as</span> IDisposable)</div><div class="line">    Console.WriteLine(obj.ToString());</div></pre></td></tr></table></figure>
+</li>
+<li><p>If obj implements IDisposable, the using statement generates the cleanup code. If not, the using statement <strong>degenerates to using(null)</strong>, which is safe but <strong>doesn’t do anything</strong>. </p>
+</li>
+<li><p>Two disposable object in one method. If use two <strong>using</strong> clause, it will create a bug, the first call using will never gets disposed if the second one throws an exception.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> (myConnection <span class="keyword">as</span> IDisposable)</div><div class="line"><span class="keyword">using</span> (mySqlCommand <span class="keyword">as</span> IDisposable)</div><div class="line">&#123;</div><div class="line">    myConnection.Open();</div><div class="line">    mySqlCommand.ExecuteNonQuery();</div><div class="line">&#125;</div><div class="line"><span class="comment">//the above code will generate the following code when compiling.</span></div><div class="line"><span class="comment">//if myConnection throw an exception, the</span></div><div class="line">SqlConnection myConnection = <span class="literal">null</span>;</div><div class="line">SqlCommand mySqlCommand = <span class="literal">null</span>;</div><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">    myConnection = <span class="keyword">new</span> SqlConnection(connString);</div><div class="line">    <span class="keyword">try</span></div><div class="line">    &#123;</div><div class="line">        mySqlCommand = <span class="keyword">new</span> SqlCommand(commandString,</div><div class="line">        myConnection);</div><div class="line">        myConnection.Open();</div><div class="line">        mySqlCommand.ExecuteNonQuery();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">finally</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (mySqlCommand != <span class="literal">null</span>)</div><div class="line">            mySqlCommand.Dispose();</div><div class="line">    &#125; </div><div class="line">&#125;</div><div class="line"><span class="keyword">finally</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (myConnection != <span class="literal">null</span>)</div><div class="line">        myConnection.Dispose();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Some types support both a <strong>Dispose</strong> method and a <strong>Close</strong> method to <strong>free resources</strong>.</p>
+<ul>
+<li>The <strong>Dispose</strong> method also <strong>notifies</strong> the Garbage Collector that the object no longer needs to be finalized. Dispose calls GC.SuppressFinalize(). <strong>_Close typically does not</strong>, the object will remain in the finalization queue, even though finalization is not needed.</li>
+<li>The <strong>Dispose</strong> does not remove objects from memory, so you can get into trouble by disposing of objects that are still in use. <ul>
+<li>For example: After you dispose of the <strong>connection</strong>, the <strong>SQLConnection object</strong> is still in memory, but it is <strong>no longer connected to a database</strong>.</li>
+</ul>
+</li>
+<li>Do not dispose of objects that are <strong>still being referenced</strong> elsewhere in your program.</li>
+</ul>
+</li>
 </ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.codeproject.com/Articles/430590/Design-Patterns-of-Creational-Design-Patterns" target="_blank" rel="external">Design Patterns 1 of 3 - Creational Design Patterns - CodeProject</a><br><a href="https://www.google.com.au/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0ahUKEwjE74WWy7rTAhVEppQKHfqGAjoQFggiMAA&amp;url=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F9780596007126.do&amp;usg=AFQjCNF91VIwQIeGyXH4xU67GibpAiRKRA&amp;sig2=YcwhV4RTfJRpzWn3xsIcoA" target="_blank" rel="external">Head First Design Patterns - O’Reilly Media</a></p>
 
       
     </div>
@@ -408,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/Structural Design Patterns 1 -- Decorator pattern/" rel="next" title="Structural Design Patterns 1 -- Decorator pattern">
-                <i class="fa fa-chevron-left"></i> Structural Design Patterns 1 -- Decorator pattern
+              <a href="/2017/04/25/Effective C Sharp -- 12. Avoid Creating Unnecessary Objects/" rel="next" title="Effective C# -- 12. Avoid Creating Unnecessary Objects">
+                <i class="fa fa-chevron-left"></i> Effective C# -- 12. Avoid Creating Unnecessary Objects
               </a>
             
           </div>
@@ -418,8 +434,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/" rel="prev" title="Behavioral Design Patterns 1 -- Observer pattern">
-                Behavioral Design Patterns 1 -- Observer pattern <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/25/Effective C Sharp -- 9. Use Proper Initialization for Static Class Members/" rel="prev" title="Effective C# -- 9. Use Proper Initialization for Static Class Members">
+                Effective C# -- 9. Use Proper Initialization for Static Class Members <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -467,17 +483,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg"
@@ -559,22 +566,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition"><span class="nav-number">1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Components"><span class="nav-number">2.</span> <span class="nav-text">Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-code"><span class="nav-number">3.</span> <span class="nav-text">Sample code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advantages"><span class="nav-number">4.</span> <span class="nav-text">Advantages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

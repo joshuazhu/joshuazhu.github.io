@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="Try it harder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Josh's Cabinet">
-<meta property="og:url" content="http://yoursite.com/categories/Design-Patterns/index.html">
+<meta name="description" content="Two mechanisms helps developers control the lifetime of unmanaged resources: finalizers and the IDisposable interface.  Finalizer: ensures your objects always have a way to release unmanaged resources">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C# -- 7. .Net Resource Management">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/Effective C Sharp -- 7. .Net Resource Management/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="Try it harder">
+<meta property="og:description" content="Two mechanisms helps developers control the lifetime of unmanaged resources: finalizers and the IDisposable interface.  Finalizer: ensures your objects always have a way to release unmanaged resources">
+<meta property="og:updated_time" content="2017-04-25T12:50:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Josh's Cabinet">
-<meta name="twitter:description" content="Try it harder">
+<meta name="twitter:title" content="Effective C# -- 7. .Net Resource Management">
+<meta name="twitter:description" content="Two mechanisms helps developers control the lifetime of unmanaged resources: finalizers and the IDisposable interface.  Finalizer: ensures your objects always have a way to release unmanaged resources">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Design-Patterns/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 7. .Net Resource Management/"/>
 
 
 
 
 
-  <title>Category: Design Patterns | Josh's Cabinet</title>
+  <title>Effective C# -- 7. .Net Resource Management | Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -157,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,103 +253,185 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Design Patterns
-        <small>Category</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Structural Design Patterns 1 -- Decorator pattern/" itemprop="url">
-              
-                <span itemprop="name">Structural Design Patterns 1 -- Decorator pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T20:18:42+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/" itemprop="url">
-              
-                <span itemprop="name">Behavioral Design Patterns 2 -- Strategy pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T20:18:42+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/" itemprop="url">
-              
-                <span itemprop="name">Behavioral Design Patterns 1 -- Observer pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T20:18:42+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 7. .Net Resource Management/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Josh Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Josh's Cabinet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Effective C# -- 7. .Net Resource Management
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T22:38:44+10:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-Sharp/" itemprop="url" rel="index">
+                    <span itemprop="name">C Sharp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Two mechanisms helps developers control the lifetime of unmanaged resources: <strong>finalizers</strong> and the <strong>IDisposable</strong> interface.</p>
+<ul>
+<li>Finalizer: ensures your objects always have a way to release unmanaged resources (<strong>avoid resource leaks</strong>).<ul>
+<li>Called by GC, will be called after an object becomes garbage.</li>
+<li>Execute at nondetermin- istic times, so <strong>minimize</strong> the need for <strong>creating</strong> finalizers, and also <strong>minimize</strong> the _<em>need for executing</em> the finalizers that do exist</li>
+<li>Relying on finalizers also affects performance: GC <strong>cannot remove</strong> an object if it <strong>requires finalization</strong>.</li>
+<li>Finalizers and GC are in <strong>different threads</strong>: GC put objects that need finalization into a queue, then another thread will execute all the finalizers.</li>
+</ul>
+</li>
+<li>IDisposable: An interface that provides a less intrusive way to return resources to the system in a timely manner (<strong>avoids the performance drain on the Garbage Collector that final- izers introduce</strong>)</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/25/Effective C Sharp -- 5. Prefer Query Syntax to loops/" rel="next" title="Effective C# -- 5. Prefer Query Syntax to loops">
+                <i class="fa fa-chevron-left"></i> Effective C# -- 5. Prefer Query Syntax to loops
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/25/Effective C Sharp -- 4. Use Conditional Attributes Instead of IF/" rel="prev" title="Effective C# -- 4. Use Conditional Attributes Instead of IF">
+                Effective C# -- 4. Use Conditional Attributes Instead of IF <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -355,6 +439,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -559,6 +647,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 

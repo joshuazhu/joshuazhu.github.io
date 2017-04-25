@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="Try it harder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Josh's Cabinet">
-<meta property="og:url" content="http://yoursite.com/categories/Design-Patterns/index.html">
+<meta name="description" content="Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables. The compiler generates code at the beginning of each constr">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C# -- 8. Prefer Member Initializers to Assignment Statements">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="Try it harder">
+<meta property="og:description" content="Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables. The compiler generates code at the beginning of each constr">
+<meta property="og:updated_time" content="2017-04-25T13:03:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Josh's Cabinet">
-<meta name="twitter:description" content="Try it harder">
+<meta name="twitter:title" content="Effective C# -- 8. Prefer Member Initializers to Assignment Statements">
+<meta name="twitter:description" content="Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables. The compiler generates code at the beginning of each constr">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Design-Patterns/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/"/>
 
 
 
 
 
-  <title>Category: Design Patterns | Josh's Cabinet</title>
+  <title>Effective C# -- 8. Prefer Member Initializers to Assignment Statements | Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -157,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,103 +253,186 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Design Patterns
-        <small>Category</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Structural Design Patterns 1 -- Decorator pattern/" itemprop="url">
-              
-                <span itemprop="name">Structural Design Patterns 1 -- Decorator pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T20:18:42+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/" itemprop="url">
-              
-                <span itemprop="name">Behavioral Design Patterns 2 -- Strategy pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T20:18:42+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/" itemprop="url">
-              
-                <span itemprop="name">Behavioral Design Patterns 1 -- Observer pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T20:18:42+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Josh Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Josh's Cabinet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Effective C# -- 8. Prefer Member Initializers to Assignment Statements
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T22:55:37+10:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-Sharp/" itemprop="url" rel="index">
+                    <span itemprop="name">C Sharp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li>Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables.</li>
+<li>The compiler generates code <strong>at the beginning of each constructor</strong> to execute all the initializers.<a id="more"></a></li>
+<li>The initializers are added to the <strong>compiler-generated default constructor</strong>.</li>
+<li>Initializers execute <strong>before the base class constructor</strong>, and they are executed <strong>in the order the variables are declared</strong> in your class.</li>
+<li>Three cases should <strong>not</strong> use initializer.<ul>
+<li>initializing the object to 0, or null: <strong>default</strong> system initialization sets everything to 0.</li>
+<li>facilitate exception handling: You cannot wrap the initializers in a try block, You should <strong>move that initialization code into the body</strong> of your constructors to catch exception.</li>
+<li>when you create multiple initializations for the <strong>same object</strong>.<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass2</span></div><div class="line">&#123;</div><div class="line">      <span class="comment">// declare the collection, and initialize it.</span></div><div class="line">      <span class="keyword">private</span> List&lt;<span class="keyword">string</span>&gt; labels = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;();</div><div class="line">      MyClass2()</div><div class="line">      &#123;</div><div class="line">      &#125;</div><div class="line">      MyClass2(<span class="keyword">int</span> size)</div><div class="line">      &#123;</div><div class="line">          <span class="comment">//compiler will generate code as labels = new List&lt;string&gt;()</span></div><div class="line">          <span class="comment">//which is unnecessary.</span></div><div class="line">          labels = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;(size);</div><div class="line">      &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/25/Effective C Sharp -- 9. Use Proper Initialization for Static Class Members/" rel="next" title="Effective C# -- 9. Use Proper Initialization for Static Class Members">
+                <i class="fa fa-chevron-left"></i> Effective C# -- 9. Use Proper Initialization for Static Class Members
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/25/Effective C Sharp -- 10. Minimize Duplicate Initialization Logic/" rel="prev" title="Effective C# -- 10. Minimize Duplicate Initialization Logic">
+                Effective C# -- 10. Minimize Duplicate Initialization Logic <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -355,6 +440,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -559,6 +648,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 

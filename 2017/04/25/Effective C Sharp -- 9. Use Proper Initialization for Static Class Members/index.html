@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="Try it harder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Josh's Cabinet">
-<meta property="og:url" content="http://yoursite.com/categories/Design-Patterns/index.html">
+<meta name="description" content="A static constructor executes before any other methods to initialize static member variables.  Should not use any instance constructors, private function or idiom to initialize static variables.  Cou">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C# -- 9. Use Proper Initialization for Static Class Members">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/Effective C Sharp -- 9. Use Proper Initialization for Static Class Members/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="Try it harder">
+<meta property="og:description" content="A static constructor executes before any other methods to initialize static member variables.  Should not use any instance constructors, private function or idiom to initialize static variables.  Cou">
+<meta property="og:updated_time" content="2017-04-25T13:02:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Josh's Cabinet">
-<meta name="twitter:description" content="Try it harder">
+<meta name="twitter:title" content="Effective C# -- 9. Use Proper Initialization for Static Class Members">
+<meta name="twitter:description" content="A static constructor executes before any other methods to initialize static member variables.  Should not use any instance constructors, private function or idiom to initialize static variables.  Cou">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Design-Patterns/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 9. Use Proper Initialization for Static Class Members/"/>
 
 
 
 
 
-  <title>Category: Design Patterns | Josh's Cabinet</title>
+  <title>Effective C# -- 9. Use Proper Initialization for Static Class Members | Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -157,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,103 +253,190 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Design Patterns
-        <small>Category</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Structural Design Patterns 1 -- Decorator pattern/" itemprop="url">
-              
-                <span itemprop="name">Structural Design Patterns 1 -- Decorator pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T20:18:42+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/" itemprop="url">
-              
-                <span itemprop="name">Behavioral Design Patterns 2 -- Strategy pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T20:18:42+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/" itemprop="url">
-              
-                <span itemprop="name">Behavioral Design Patterns 1 -- Observer pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T20:18:42+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 9. Use Proper Initialization for Static Class Members/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Josh Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Josh's Cabinet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Effective C# -- 9. Use Proper Initialization for Static Class Members
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T23:00:26+10:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-Sharp/" itemprop="url" rel="index">
+                    <span itemprop="name">C Sharp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li><p>A static constructor executes before any other methods to initialize static member variables.</p>
+</li>
+<li><p><strong>Should not use any instance constructors, private function or idiom to initialize static variables.</strong></p>
+</li>
+<li><p>Could use  <strong>initializer syntax</strong> as an <strong>alternative</strong> to the <strong>static constructor</strong>. If have more complicated logic for initialization, create a static constructor.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MySingleton2</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> MySingleton2 theOneAndOnly;</div><div class="line"></div><div class="line">    <span class="comment">// static constructor</span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="title">MySingleton2</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        theOneAndOnly = <span class="keyword">new</span> MySingleton2();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MySingleton2 TheOnly</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">get</span> &#123; <span class="keyword">return</span> theOneAndOnly; &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MySingleton2</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// remainder elided</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Static constructor:</p>
+<ul>
+<li>Can define <strong>only one</strong> static constructor.</li>
+<li>Must <strong>not</strong> take any <strong>arguments</strong>.</li>
+<li>Will be called by <strong>CLR</strong>, if an exception escape  a static constructor, <strong>CLR will terminate program</strong>.</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/25/Effective C Sharp -- 11. Utilize using and try and finally for Resource Cleanup/" rel="next" title="Effective C# -- 11. Utilize using and try/finally for Resource Cleanup">
+                <i class="fa fa-chevron-left"></i> Effective C# -- 11. Utilize using and try/finally for Resource Cleanup
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/" rel="prev" title="Effective C# -- 8. Prefer Member Initializers to Assignment Statements">
+                Effective C# -- 8. Prefer Member Initializers to Assignment Statements <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -355,6 +444,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -559,6 +652,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 

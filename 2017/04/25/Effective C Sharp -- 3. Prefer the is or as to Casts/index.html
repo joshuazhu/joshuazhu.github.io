@@ -90,19 +90,17 @@
 
 
 
-<meta name="description" content="DefinitionDefines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary indenpendently from clients that use it. Components Client: this class">
+<meta name="description" content="Correct choice for type casting is to user the as operator as it is safer and more efficient at runtime (they succeed only if the runtime type matches the sought type, never construct a new object).">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Behavioral Design Patterns 2 -- Strategy pattern">
-<meta property="og:url" content="http://yoursite.com/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/index.html">
+<meta property="og:title" content="Effective C# -- 3. Prefer the is or as to Casts">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/Effective C Sharp -- 3. Prefer the is or as to Casts/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="DefinitionDefines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary indenpendently from clients that use it. Components Client: this class">
-<meta property="og:image" content="https://www.codeproject.com/KB/architecture/455228/strategy.jpg">
-<meta property="og:updated_time" content="2017-04-25T09:39:11.962Z">
+<meta property="og:description" content="Correct choice for type casting is to user the as operator as it is safer and more efficient at runtime (they succeed only if the runtime type matches the sought type, never construct a new object).">
+<meta property="og:updated_time" content="2017-04-25T12:18:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Behavioral Design Patterns 2 -- Strategy pattern">
-<meta name="twitter:description" content="DefinitionDefines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary indenpendently from clients that use it. Components Client: this class">
-<meta name="twitter:image" content="https://www.codeproject.com/KB/architecture/455228/strategy.jpg">
+<meta name="twitter:title" content="Effective C# -- 3. Prefer the is or as to Casts">
+<meta name="twitter:description" content="Correct choice for type casting is to user the as operator as it is safer and more efficient at runtime (they succeed only if the runtime type matches the sought type, never construct a new object).">
 
 
 
@@ -130,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 3. Prefer the is or as to Casts/"/>
 
 
 
 
 
-  <title>Behavioral Design Patterns 2 -- Strategy pattern | Josh's Cabinet</title>
+  <title>Effective C# -- 3. Prefer the is or as to Casts | Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -265,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 3. Prefer the is or as to Casts/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Josh Zhu">
@@ -286,7 +284,7 @@
             
             
               
-                Behavioral Design Patterns 2 -- Strategy pattern
+                Effective C# -- 3. Prefer the is or as to Casts
               
             
           </h1>
@@ -301,7 +299,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T20:18:42+10:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T21:56:30+10:00">
                 2017-04-25
               </time>
             
@@ -324,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
-                    <span itemprop="name">Design Patterns</span>
+                  <a href="/categories/C-Sharp/" itemprop="url" rel="index">
+                    <span itemprop="name">C Sharp</span>
                   </a>
                 </span>
 
@@ -358,20 +356,29 @@
       
 
       
-        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the <strong>algorithm vary indenpendently</strong> from clients that use it.</p>
-<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ol>
-<li><strong>Client</strong>: this class uses interchangeable algorithms. It maintains <strong>a reference to StrategyBase object</strong>. </li>
-<li><strong>StrategyBase</strong>: declares an <strong>interface</strong> common to all supported algorithms.</li>
-<li><strong>ConcreteStrategy</strong>:<strong>inherited</strong> from the StrategyBase Class, provides a different algorithm.</li>
+        <ol>
+<li><p>Correct choice for type casting is to user the <strong>as</strong> operator as it is <strong>safer</strong> and more <strong>efficient</strong> at runtime (they <strong>succeed only</strong> if the runtime type matches the sought type, <strong>never construct a new object</strong>).</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">object</span> o = Factory.GetObject();</div><div class="line"><span class="comment">// Version one:</span></div><div class="line">MyType t = o <span class="keyword">as</span> MyType;</div><div class="line"><span class="keyword">if</span> (t != <span class="literal">null</span>)</div><div class="line">&#123;</div><div class="line">    <span class="comment">// work with t, it's a MyType.</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>When using <strong>cast</strong> instead of <strong>is</strong> or <strong>as</strong>, need to <strong>check null</strong> in addition to catching exceptions, <strong>null can be converted to any reference type using a cast</strong>.</p>
+</li>
+<li><p>The main difference between cast and as operator:</p>
+<ul>
+<li>As/Is: do not perform any other operations, is object is not the requested type or derived from the requested type, they fail.</li>
+<li>Casts: Can use conversion operators to convert an object to requested type (casting a long to short can lose information) <a id="more"></a></li>
+</ul>
+</li>
+<li><p>The user-defined conversion operators may not work for cast as it is only work on the compile-time type of an object, not on the runtime type.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SecondType</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> MyType _value;</div><div class="line">    <span class="comment">// other details elided</span></div><div class="line">    <span class="comment">// Conversion operator.</span></div><div class="line">    <span class="comment">// This converts a SecondType to</span></div><div class="line">    <span class="comment">// a MyType, see item 9.</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">implicit</span> <span class="keyword">operator</span></span></div><div class="line">        <span class="title">MyType</span>(<span class="params">SecondType t</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span> t._value;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span> []args</span>)</span></div><div class="line">    &#123;</div><div class="line">        </div><div class="line">        <span class="keyword">try</span></div><div class="line">        &#123;</div><div class="line">            MyType t1;</div><div class="line">            <span class="comment">//user-defined operator will not work</span></div><div class="line">            t1 = (MyType)o; <span class="comment">// Fails. o is not MyType</span></div><div class="line">            <span class="comment">// work with t1, it's a MyType.</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">catch</span> (InvalidCastException e)</div><div class="line">        &#123;</div><div class="line">            Console.WriteLine(e.Message);</div><div class="line">            <span class="comment">// report the conversion failure.</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>The <strong>as</strong> operator does not work on <strong>value types</strong>. That’s because ints are value types and <strong>can never be null</strong>. Use <strong>is</strong> operator only when you cannot convert the type using <strong>as</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">i = (<span class="keyword">int</span>)o; <span class="comment">// will throw an error</span></div><div class="line"><span class="comment">//use is to check if o is an integer</span></div><div class="line"><span class="keyword">object</span> o = Factory.GetValue();</div><div class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line"><span class="keyword">if</span> (o <span class="keyword">is</span> <span class="keyword">int</span>)</div><div class="line">i = (<span class="keyword">int</span>)o;</div></pre></td></tr></table></figure>
+</li>
+<li><p>If you’re about to <strong>convert a type using as</strong>, the is check is simply not necessary. <strong>Check the return from as against null</strong>; it’s simpler.</p>
+</li>
+<li><p><strong>foreach</strong> uses a cast operation to perform conversions from an object to the type used in the loop. <strong>The foreach statement</strong> (which uses a cast) does not examine the casts that are available in the runtime type of the objects in the collection (<strong>user-defined operator</strong>). It examines only the conversions available in the <strong>System.Object class</strong>.</p>
+</li>
 </ol>
-<p><img src="https://www.codeproject.com/KB/architecture/455228/strategy.jpg" alt="Strategy pattern uml"></p>
-<a id="more"></a>
-<h2 id="Sample-code"><a href="#Sample-code" class="headerlink" title="Sample code"></a>Sample code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">Istrategy</span> &#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>)</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Strategy1</span> <span class="title">implements</span> <span class="title">Istrategy</span>&#123; </div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		System.<span class="keyword">out</span>.println(<span class="string">"operate 1"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Strategy2</span> <span class="title">implements</span> <span class="title">Istrategy</span> &#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		System.<span class="keyword">out</span>.println(<span class="string">"operate 2"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Context</span> &#123;</div><div class="line">	<span class="keyword">private</span> Istrategy strategy;</div><div class="line"> </div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Context</span>(<span class="params">Istrategy strategy</span>) </span>&#123;</div><div class="line">		<span class="keyword">this</span>.strategy = strategy;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">this</span>.strategy.operate();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Client</span> &#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params"><span class="keyword">string</span> args[]</span>) </span>&#123;</div><div class="line">		Context context;</div><div class="line">		context = <span class="keyword">new</span> Context (<span class="keyword">new</span> Strategy1());</div><div class="line">		context.operate();</div><div class="line"></div><div class="line">		context = <span class="keyword">new</span> Context (<span class="keyword">new</span> Strategy2());</div><div class="line">		context.operate();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><ol>
-<li>Provides design where <strong>client</strong> and <strong>strategies</strong> are <strong>loosely coupled</strong>.</li>
-<li><strong>Easy</strong> to <strong>add</strong> or <strong>replace</strong> or <strong>reuse</strong> clients or strategies.</li>
-</ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.codeproject.com/Articles/430590/Design-Patterns-of-Creational-Design-Patterns" target="_blank" rel="external">Design Patterns 1 of 3 - Creational Design Patterns - CodeProject</a><br><a href="https://www.google.com.au/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0ahUKEwjE74WWy7rTAhVEppQKHfqGAjoQFggiMAA&amp;url=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F9780596007126.do&amp;usg=AFQjCNF91VIwQIeGyXH4xU67GibpAiRKRA&amp;sig2=YcwhV4RTfJRpzWn3xsIcoA" target="_blank" rel="external">Head First Design Patterns - O’Reilly Media</a></p>
 
       
     </div>
@@ -408,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/Structural Design Patterns 1 -- Decorator pattern/" rel="next" title="Structural Design Patterns 1 -- Decorator pattern">
-                <i class="fa fa-chevron-left"></i> Structural Design Patterns 1 -- Decorator pattern
+              <a href="/2017/04/25/Effective C Sharp -- 4. Use Conditional Attributes Instead of IF/" rel="next" title="Effective C# -- 4. Use Conditional Attributes Instead of IF">
+                <i class="fa fa-chevron-left"></i> Effective C# -- 4. Use Conditional Attributes Instead of IF
               </a>
             
           </div>
@@ -418,8 +425,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/" rel="prev" title="Behavioral Design Patterns 1 -- Observer pattern">
-                Behavioral Design Patterns 1 -- Observer pattern <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/25/Effective C Sharp -- 2. Prefer readonly to const/" rel="prev" title="Effective C# -- 2. Prefer readonly to const">
+                Effective C# -- 2. Prefer readonly to const <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -467,17 +474,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg"
@@ -559,22 +557,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition"><span class="nav-number">1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Components"><span class="nav-number">2.</span> <span class="nav-text">Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-code"><span class="nav-number">3.</span> <span class="nav-text">Sample code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advantages"><span class="nav-number">4.</span> <span class="nav-text">Advantages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
