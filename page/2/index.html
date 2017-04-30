@@ -263,6 +263,311 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 4. Use Conditional Attributes Instead of IF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Josh Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Josh's Cabinet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/Effective C Sharp -- 4. Use Conditional Attributes Instead of IF/" itemprop="url">
+                  Effective C# -- 4. Use Conditional Attributes Instead of IF
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T21:57:01+10:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Net/" itemprop="url" rel="index">
+                    <span itemprop="name">.Net</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li><p>If use a <strong> #if and #endif </strong> pragmas in a function for debug model, in release model will have an empty function, which will cause unnecessary cost. </p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Func</span>(<span class="params"></span>)</div><div class="line"></span>&#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">if</span> DEBUG</span></div><div class="line">    msg = GetDiagnostics();</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"><span class="comment">//when release, the function body is empty     </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Instead, we can use conditional attribute. <strong>Conditional attribute will invoke the function marked as “DEBUG” only when creating debug builds</strong>.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/25/Effective C Sharp -- 4. Use Conditional Attributes Instead of IF/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 3. Prefer the is or as to Casts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Josh Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Josh's Cabinet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/Effective C Sharp -- 3. Prefer the is or as to Casts/" itemprop="url">
+                  Effective C# -- 3. Prefer the is or as to Casts
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T21:56:30+10:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Net/" itemprop="url" rel="index">
+                    <span itemprop="name">.Net</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li><p>Correct choice for type casting is to user the <strong>as</strong> operator as it is <strong>safer</strong> and more <strong>efficient</strong> at runtime (they <strong>succeed only</strong> if the runtime type matches the sought type, <strong>never construct a new object</strong>).</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">object</span> o = Factory.GetObject();</div><div class="line"><span class="comment">// Version one:</span></div><div class="line">MyType t = o <span class="keyword">as</span> MyType;</div><div class="line"><span class="keyword">if</span> (t != <span class="literal">null</span>)</div><div class="line">&#123;</div><div class="line">    <span class="comment">// work with t, it's a MyType.</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>When using <strong>cast</strong> instead of <strong>is</strong> or <strong>as</strong>, need to <strong>check null</strong> in addition to catching exceptions, <strong>null can be converted to any reference type using a cast</strong>.</p>
+</li>
+<li><p>The main difference between cast and as operator:</p>
+<ul>
+<li>As/Is: do not perform any other operations, is object is not the requested type or derived from the requested type, they fail.</li>
+<li>Casts: Can use conversion operators to convert an object to requested type (casting a long to short can lose information)
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/25/Effective C Sharp -- 3. Prefer the is or as to Casts/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 2. Prefer readonly to const/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -972,7 +1277,8 @@
 <li><strong>SubjectBase</strong>: base class of all subjects.<br> a. Contains a <strong>list</strong> of <strong>observers</strong> that are subscribed to the subject and methods.<br> b. A <strong>Notify</strong> method loops through the list of observers to call <strong>their notify</strong> method.</li>
 <li><strong>ConcreteSubject</strong>: concrete implementation of base subject.</li>
 <li><strong>ObserverBase</strong>: base class of observers, contains methods which is called when a subject’s state changes.</li>
-<li><strong>ConcreteObserver</strong>: concrete implementation of base observer.<br><img src="https://www.codeproject.com/KB/architecture/455228/observer.jpg" alt="Observer pattern UML">
+<li><strong>ConcreteObserver</strong>: concrete implementation of base observer.<br><img src="https://www.codeproject.com/KB/architecture/455228/observer.jpg" alt="Observer pattern UML"></li>
+</ol>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/#more" rel="contents">
@@ -1061,7 +1367,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
