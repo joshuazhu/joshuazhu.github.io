@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables. The compiler generates code at the beginning of each constr">
+<meta name="description" content="DefinitionDefines a manner for creating relationships between objects. This pattern translates one interface for a class into another compatible interface. It is usually implemented when requirements">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Effective C# -- 8. Prefer Member Initializers to Assignment Statements">
-<meta property="og:url" content="http://yoursite.com/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/index.html">
+<meta property="og:title" content="Structural Design Patterns 2 -- Adapter Pattern">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/Structural Design Patterns 2 -- Adapter Pattern/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables. The compiler generates code at the beginning of each constr">
-<meta property="og:updated_time" content="2017-04-25T13:27:50.936Z">
+<meta property="og:description" content="DefinitionDefines a manner for creating relationships between objects. This pattern translates one interface for a class into another compatible interface. It is usually implemented when requirements">
+<meta property="og:image" content="https://www.codeproject.com/KB/architecture/774259/extracted-png-image2.png">
+<meta property="og:updated_time" content="2017-05-03T12:09:25.420Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Effective C# -- 8. Prefer Member Initializers to Assignment Statements">
-<meta name="twitter:description" content="Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables. The compiler generates code at the beginning of each constr">
+<meta name="twitter:title" content="Structural Design Patterns 2 -- Adapter Pattern">
+<meta name="twitter:description" content="DefinitionDefines a manner for creating relationships between objects. This pattern translates one interface for a class into another compatible interface. It is usually implemented when requirements">
+<meta name="twitter:image" content="https://www.codeproject.com/KB/architecture/774259/extracted-png-image2.png">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/03/Structural Design Patterns 2 -- Adapter Pattern/"/>
 
 
 
 
 
-  <title>Effective C# -- 8. Prefer Member Initializers to Assignment Statements | Josh's Cabinet</title>
+  <title>Structural Design Patterns 2 -- Adapter Pattern | Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -263,7 +265,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/03/Structural Design Patterns 2 -- Adapter Pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Josh Zhu">
@@ -284,7 +286,7 @@
             
             
               
-                Effective C# -- 8. Prefer Member Initializers to Assignment Statements
+                Structural Design Patterns 2 -- Adapter Pattern
               
             
           </h1>
@@ -299,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T22:55:37+10:00">
-                2017-04-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-03T21:28:03+10:00">
+                2017-05-03
               </time>
             
 
@@ -322,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Net/" itemprop="url" rel="index">
-                    <span itemprop="name">.Net</span>
+                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Patterns</span>
                   </a>
                 </span>
 
@@ -356,18 +358,17 @@
       
 
       
-        <ol>
-<li>Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables.</li>
-<li>The compiler generates code <strong>at the beginning of each constructor</strong> to execute all the initializers.<a id="more"></a></li>
-<li>The initializers are added to the <strong>compiler-generated default constructor</strong>.</li>
-<li>Initializers execute <strong>before the base class constructor</strong>, and they are executed <strong>in the order the variables are declared</strong> in your class.</li>
-<li>Three cases should <strong>not</strong> use initializer.<ul>
-<li>initializing the object to 0, or null: <strong>default</strong> system initialization sets everything to 0.</li>
-<li>facilitate exception handling: You cannot wrap the initializers in a try block, You should <strong>move that initialization code into the body</strong> of your constructors to catch exception.</li>
-<li>when you create multiple initializations for the <strong>same object</strong>.<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass2</span></div><div class="line">&#123;</div><div class="line">      <span class="comment">// declare the collection, and initialize it.</span></div><div class="line">      <span class="keyword">private</span> List&lt;<span class="keyword">string</span>&gt; labels = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;();</div><div class="line">      MyClass2()</div><div class="line">      &#123;</div><div class="line">      &#125;</div><div class="line">      MyClass2(<span class="keyword">int</span> size)</div><div class="line">      &#123;</div><div class="line">          <span class="comment">//compiler will generate code as labels = new List&lt;string&gt;()</span></div><div class="line">          <span class="comment">//which is unnecessary.</span></div><div class="line">          labels = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;(size);</div><div class="line">      &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines a manner for creating relationships between objects. This pattern translates one interface for a class into another compatible interface.</p>
+<p>It is usually implemented when requirements are changed and we must implement some functionality of classes which interfaces <strong>are not compatible with ours</strong>.</p>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ul>
+<li><strong>Client</strong>: Represents the class which wants to use the incompatible interface.</li>
+<li><strong>ITarget</strong>: Interface that is used by client.</li>
+<li><strong>Adaptee</strong>: This is the functionality which the client desires but its interface is not compatible with the client.</li>
+<li><strong>Adapter</strong>: This is the class which would implement ITarget and would call the Adaptee code which the client wants to call.<br><img src="https://www.codeproject.com/KB/architecture/774259/extracted-png-image2.png" alt="Adapter Pattern UML"></li>
 </ul>
-</li>
-</ol>
+<a id="more"></a>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">ITarget</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">MethodA</span>(<span class="params"></span>)</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Client</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> ITarget _iTarget &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Client</span>(<span class="params">ITarget target</span>)</span></div><div class="line">    &#123;</div><div class="line">        _iTarget = target;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Request</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        _iTarget.MethodA();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Adaptee</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MethodB</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        Console.WriteLine(<span class="string">"Adaptee's MethodB called"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Adapter</span> : <span class="title">ITarget</span></div><div class="line">&#123;</div><div class="line">    Adaptee _adaptee = <span class="keyword">new</span> Adaptee();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MethodA</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        _adaptee.MethodB();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> adapter = <span class="keyword">new</span> Adapter();</div><div class="line">        <span class="keyword">var</span> client = <span class="keyword">new</span> Client(adapter);</div><div class="line">        client.Request();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.codeproject.com/Articles/438922/Design-Patterns-of-Structural-Design-Patterns" target="_blank" rel="external">Design Patterns 2 of 3 - Structural Design Patterns - CodeProject</a><br><a href="https://www.google.com.au/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0ahUKEwjE74WWy7rTAhVEppQKHfqGAjoQFggiMAA&amp;url=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F9780596007126.do&amp;usg=AFQjCNF91VIwQIeGyXH4xU67GibpAiRKRA&amp;sig2=YcwhV4RTfJRpzWn3xsIcoA" target="_blank" rel="external">Head First Design Patterns - O’Reilly Media</a></p>
 
       
     </div>
@@ -404,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/Effective C Sharp -- 9. Use Proper Initialization for Static Class Members/" rel="next" title="Effective C# -- 9. Use Proper Initialization for Static Class Members">
-                <i class="fa fa-chevron-left"></i> Effective C# -- 9. Use Proper Initialization for Static Class Members
+              <a href="/2017/05/03/Behavioral Design Patterns 4 -- Template method pattern/" rel="next" title="Behavioral Design Patterns 4 -- Template method pattern">
+                <i class="fa fa-chevron-left"></i> Behavioral Design Patterns 4 -- Template method pattern
               </a>
             
           </div>
@@ -414,8 +415,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/25/Effective C Sharp -- 10. Minimize Duplicate Initialization Logic/" rel="prev" title="Effective C# -- 10. Minimize Duplicate Initialization Logic">
-                Effective C# -- 10. Minimize Duplicate Initialization Logic <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/30/Behavioral Design Patterns 3 -- Command pattern/" rel="prev" title="Behavioral Design Patterns 3 -- Command pattern">
+                Behavioral Design Patterns 3 -- Command pattern <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -463,8 +464,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg"
@@ -546,6 +556,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition"><span class="nav-number">1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Components"><span class="nav-number">2.</span> <span class="nav-text">Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

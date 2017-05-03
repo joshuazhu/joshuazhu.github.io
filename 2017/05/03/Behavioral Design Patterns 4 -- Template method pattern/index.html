@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables. The compiler generates code at the beginning of each constr">
+<meta name="description" content="DefinitionDefines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps. Components AbstractClass: Defines a group of basic methods and template methods.">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Effective C# -- 8. Prefer Member Initializers to Assignment Statements">
-<meta property="og:url" content="http://yoursite.com/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/index.html">
+<meta property="og:title" content="Behavioral Design Patterns 4 -- Template method pattern">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/Behavioral Design Patterns 4 -- Template method pattern/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables. The compiler generates code at the beginning of each constr">
-<meta property="og:updated_time" content="2017-04-25T13:27:50.936Z">
+<meta property="og:description" content="DefinitionDefines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps. Components AbstractClass: Defines a group of basic methods and template methods.">
+<meta property="og:image" content="https://www.codeproject.com/KB/architecture/455228/template_method.jpg">
+<meta property="og:updated_time" content="2017-05-03T12:09:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Effective C# -- 8. Prefer Member Initializers to Assignment Statements">
-<meta name="twitter:description" content="Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables. The compiler generates code at the beginning of each constr">
+<meta name="twitter:title" content="Behavioral Design Patterns 4 -- Template method pattern">
+<meta name="twitter:description" content="DefinitionDefines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps. Components AbstractClass: Defines a group of basic methods and template methods.">
+<meta name="twitter:image" content="https://www.codeproject.com/KB/architecture/455228/template_method.jpg">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/03/Behavioral Design Patterns 4 -- Template method pattern/"/>
 
 
 
 
 
-  <title>Effective C# -- 8. Prefer Member Initializers to Assignment Statements | Josh's Cabinet</title>
+  <title>Behavioral Design Patterns 4 -- Template method pattern | Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -263,7 +265,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/03/Behavioral Design Patterns 4 -- Template method pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Josh Zhu">
@@ -284,7 +286,7 @@
             
             
               
-                Effective C# -- 8. Prefer Member Initializers to Assignment Statements
+                Behavioral Design Patterns 4 -- Template method pattern
               
             
           </h1>
@@ -299,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T22:55:37+10:00">
-                2017-04-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-03T22:02:03+10:00">
+                2017-05-03
               </time>
             
 
@@ -322,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Net/" itemprop="url" rel="index">
-                    <span itemprop="name">.Net</span>
+                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Patterns</span>
                   </a>
                 </span>
 
@@ -356,18 +358,19 @@
       
 
       
-        <ol>
-<li>Declare member variable instead of in the body of every constructor, utilize the initializer syntax for both static and instance variables.</li>
-<li>The compiler generates code <strong>at the beginning of each constructor</strong> to execute all the initializers.<a id="more"></a></li>
-<li>The initializers are added to the <strong>compiler-generated default constructor</strong>.</li>
-<li>Initializers execute <strong>before the base class constructor</strong>, and they are executed <strong>in the order the variables are declared</strong> in your class.</li>
-<li>Three cases should <strong>not</strong> use initializer.<ul>
-<li>initializing the object to 0, or null: <strong>default</strong> system initialization sets everything to 0.</li>
-<li>facilitate exception handling: You cannot wrap the initializers in a try block, You should <strong>move that initialization code into the body</strong> of your constructors to catch exception.</li>
-<li>when you create multiple initializations for the <strong>same object</strong>.<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyClass2</span></div><div class="line">&#123;</div><div class="line">      <span class="comment">// declare the collection, and initialize it.</span></div><div class="line">      <span class="keyword">private</span> List&lt;<span class="keyword">string</span>&gt; labels = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;();</div><div class="line">      MyClass2()</div><div class="line">      &#123;</div><div class="line">      &#125;</div><div class="line">      MyClass2(<span class="keyword">int</span> size)</div><div class="line">      &#123;</div><div class="line">          <span class="comment">//compiler will generate code as labels = new List&lt;string&gt;()</span></div><div class="line">          <span class="comment">//which is unnecessary.</span></div><div class="line">          labels = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;(size);</div><div class="line">      &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
-</ul>
-</li>
+        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.</p>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ol>
+<li><strong>AbstractClass</strong>: Defines a group of <strong>basic methods</strong> and <strong>template methods</strong>. <strong>Template Methods</strong> define the order of executing basic methods. <strong>Basic Methods</strong> let subclasses to override or implement。</li>
+<li><strong>ConcreteClass</strong>：Inheret from Abstract Class that implements the basic methods which defined by Abstract Class.<br><img src="https://www.codeproject.com/KB/architecture/455228/template_method.jpg" alt="Template Method Pattern UML"></li>
 </ol>
+<a id="more"></a>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Abstract Class</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">AbstractClass</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//basic methods</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">SimpleMethod1</span>(<span class="params"></span>)</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">SimpleMethod2</span>(<span class="params"></span>)</span>;</div><div class="line"></div><div class="line">    <span class="comment">//template methods</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">templateMethod</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        SimpleMethod1();</div><div class="line">        SimpleMethod2();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//Concrete methods</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ConcreteClass</span> : <span class="title">AbstractClass</span></div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">SimpleMethod1</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        Console.WriteLine(<span class="string">"method1"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">SimpleMethod2</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        Console.WriteLine(<span class="string">"method2"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//Client class</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Client</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params">String[] args</span>)</span></div><div class="line">    &#123;</div><div class="line">        ConcreteClass class1 = <span class="keyword">new</span> ConcreteClass();</div><div class="line">        class1.templateMethod();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><ol>
+<li>Open Close Principle. </li>
+<li>The behavior(orders of executing basic methods) is controlled by parent class, subclasses are only for implementation. Easy to extend.</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.codeproject.com/Articles/430590/Design-Patterns-of-Creational-Design-Patterns" target="_blank" rel="external">Design Patterns 1 of 3 - Creational Design Patterns - CodeProject</a></p>
+<p><a href="https://www.google.com.au/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0ahUKEwjE74WWy7rTAhVEppQKHfqGAjoQFggiMAA&amp;url=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F9780596007126.do&amp;usg=AFQjCNF91VIwQIeGyXH4xU67GibpAiRKRA&amp;sig2=YcwhV4RTfJRpzWn3xsIcoA" target="_blank" rel="external">Head First Design Patterns - O’Reilly Media</a></p>
 
       
     </div>
@@ -404,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/Effective C Sharp -- 9. Use Proper Initialization for Static Class Members/" rel="next" title="Effective C# -- 9. Use Proper Initialization for Static Class Members">
-                <i class="fa fa-chevron-left"></i> Effective C# -- 9. Use Proper Initialization for Static Class Members
+              <a href="/2017/05/03/Behavioral Design Patterns 5 -- Mediator pattern/" rel="next" title="Behavioral Design Patterns 5 -- Mediator pattern">
+                <i class="fa fa-chevron-left"></i> Behavioral Design Patterns 5 -- Mediator pattern
               </a>
             
           </div>
@@ -414,8 +417,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/25/Effective C Sharp -- 10. Minimize Duplicate Initialization Logic/" rel="prev" title="Effective C# -- 10. Minimize Duplicate Initialization Logic">
-                Effective C# -- 10. Minimize Duplicate Initialization Logic <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/03/Structural Design Patterns 2 -- Adapter Pattern/" rel="prev" title="Structural Design Patterns 2 -- Adapter Pattern">
+                Structural Design Patterns 2 -- Adapter Pattern <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -463,8 +466,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg"
@@ -546,6 +558,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition"><span class="nav-number">1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Components"><span class="nav-number">2.</span> <span class="nav-text">Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advantages"><span class="nav-number">4.</span> <span class="nav-text">Advantages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
