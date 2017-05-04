@@ -263,6 +263,170 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 10. Minimize Duplicate Initialization Logic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Josh Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Josh's Cabinet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/Effective C Sharp -- 10. Minimize Duplicate Initialization Logic/" itemprop="url">
+                  Effective C# -- 10. Minimize Duplicate Initialization Logic
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T22:51:57+10:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Net/" itemprop="url" rel="index">
+                    <span itemprop="name">.Net</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>Find that multiple constructors contain the same logic, factor that logic into a common constructor instead.</p>
+</li>
+<li><p>One constructor all another one.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">MyClass</span>(<span class="params"></span>) : <span class="title">this</span>(<span class="params"><span class="number">0</span>, <span class="string">""</span></span>)</span></div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">MyClass</span>(<span class="params"><span class="keyword">int</span> initialCount</span>) : <span class="title">this</span>(<span class="params">initialCount, <span class="keyword">string</span>.Empty</span>)</span></div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">MyClass</span>(<span class="params"><span class="keyword">int</span> initialCount, <span class="keyword">string</span> name</span>)</span></div><div class="line">&#123;</div><div class="line">   <span class="comment">//logic here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Order of operations for construction the first instance of a type.</p>
+<ol>
+<li>Static variable storage is set to 0.</li>
+<li>Static variable initializers execute.</li>
+<li>Static constructors for the base class execute.</li>
+<li>The static constructor executes.</li>
+<li>Instance variable storage is set to 0.</li>
+<li>Instance variable initializers execute.</li>
+<li>The appropriate base class instance constructor executes. </li>
+<li><p>The instance constructor executes.</p>
+<p><strong>Subsequent instances</strong> of the same type start at step 5.</p>
+</li>
+</ol>
+</li>
+<li><p>Use <strong>initializers</strong> to initialize <strong>simple resources</strong>. Use <strong>constructors</strong> to initialize members that require <strong>more sophisticated</strong> logic.</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 6. Understand the Attraction of Small Functions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1616,163 +1780,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Josh Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Josh's Cabinet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/" itemprop="url">
-                  Behavioral Design Patterns 1 -- Observer pattern
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T20:18:42+10:00">
-                2017-04-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
-                    <span itemprop="name">Design Patterns</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically.</p>
-<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ol>
-<li><strong>SubjectBase</strong>: base class of all subjects.<br> a. Contains a <strong>list</strong> of <strong>observers</strong> that are subscribed to the subject and methods.<br> b. A <strong>Notify</strong> method loops through the list of observers to call <strong>their notify</strong> method.</li>
-<li><strong>ConcreteSubject</strong>: concrete implementation of base subject.</li>
-<li><strong>ObserverBase</strong>: base class of observers, contains methods which is called when a subject’s state changes.</li>
-<li><strong>ConcreteObserver</strong>: concrete implementation of base observer.<br><img src="https://www.codeproject.com/KB/architecture/455228/observer.jpg" alt="Observer pattern UML"></li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1817,7 +1829,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1828,7 +1840,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>

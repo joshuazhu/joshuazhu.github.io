@@ -93,7 +93,7 @@
 <meta name="description" content="Try it harder">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Josh's Cabinet">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
 <meta property="og:description" content="Try it harder">
 <meta name="twitter:card" content="summary">
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/"/>
+  <link rel="canonical" href="http://yoursite.com/page/3/"/>
 
 
 
 
 
-  <title>Archive | Josh's Cabinet</title>
+  <title>Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -157,7 +157,9 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -250,403 +252,166 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 21 posts in total. Keep on posting.
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Josh Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Josh's Cabinet">
     </span>
 
     
+      <header class="post-header">
 
-      
-      
-      
-
-      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/" itemprop="url">
+                  Behavioral Design Patterns 1 -- Observer pattern
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T20:18:42+10:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Patterns</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2017/05/04/Unit Testing 1 -- Unit tests and Integration tests/" itemprop="url">
-              
-                <span itemprop="name">Unit Testing 1 -- Unit tests, Integration tests and Test-driven development</span>
-              
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically.</p>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ol>
+<li><strong>SubjectBase</strong>: base class of all subjects.<br> a. Contains a <strong>list</strong> of <strong>observers</strong> that are subscribed to the subject and methods.<br> b. A <strong>Notify</strong> method loops through the list of observers to call <strong>their notify</strong> method.</li>
+<li><strong>ConcreteSubject</strong>: concrete implementation of base subject.</li>
+<li><strong>ObserverBase</strong>: base class of observers, contains methods which is called when a subject’s state changes.</li>
+<li><strong>ConcreteObserver</strong>: concrete implementation of base observer.<br><img src="https://www.codeproject.com/KB/architecture/455228/observer.jpg" alt="Observer pattern UML"></li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/#more" rel="contents">
+              Read more &raquo;
             </a>
+          </div>
+          <!--/noindex-->
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-04T22:51:44+10:00"
-              content="2017-05-04" >
-          05-04
-        </time>
-      </div>
+    <div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
-
     
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/03/Behavioral Design Patterns 5 -- Mediator pattern/" itemprop="url">
-              
-                <span itemprop="name">Behavioral Design Patterns 5 -- Mediator pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-03T23:11:17+10:00"
-              content="2017-05-03" >
-          05-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/03/Behavioral Design Patterns 4 -- Template method pattern/" itemprop="url">
-              
-                <span itemprop="name">Behavioral Design Patterns 4 -- Template method pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-03T22:02:03+10:00"
-              content="2017-05-03" >
-          05-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/03/Structural Design Patterns 2 -- Adapter Pattern/" itemprop="url">
-              
-                <span itemprop="name">Structural Design Patterns 2 -- Adapter Pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-03T21:28:03+10:00"
-              content="2017-05-03" >
-          05-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/30/Behavioral Design Patterns 3 -- Command pattern/" itemprop="url">
-              
-                <span itemprop="name">Behavioral Design Patterns 3 -- Command pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-30T23:30:12+10:00"
-              content="2017-04-30" >
-          04-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/30/Creational Design Patterns 1 -- Factory pattern/" itemprop="url">
-              
-                <span itemprop="name">Creational Design Patterns 1 -- Factory pattern</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-30T20:22:00+10:00"
-              content="2017-04-30" >
-          04-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Effective C Sharp -- 12. Avoid Creating Unnecessary Objects/" itemprop="url">
-              
-                <span itemprop="name">Effective C# -- 12. Avoid Creating Unnecessary Objects</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T23:13:56+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Effective C Sharp -- 11. Utilize using and try and finally for Resource Cleanup/" itemprop="url">
-              
-                <span itemprop="name">Effective C# -- 11. Utilize using and try/finally for Resource Cleanup</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T23:10:07+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Effective C Sharp -- 9. Use Proper Initialization for Static Class Members/" itemprop="url">
-              
-                <span itemprop="name">Effective C# -- 9. Use Proper Initialization for Static Class Members</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T23:00:26+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/" itemprop="url">
-              
-                <span itemprop="name">Effective C# -- 8. Prefer Member Initializers to Assignment Statements</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-25T22:55:37+10:00"
-              content="2017-04-25" >
-          04-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="extend next" rel="next" href="/archives/2017/page/2/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
-
 
 
 
@@ -859,12 +624,6 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
 
   
 

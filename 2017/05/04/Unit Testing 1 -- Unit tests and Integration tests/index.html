@@ -90,19 +90,17 @@
 
 
 
-<meta name="description" content="DefinitionDefines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary indenpendently from clients that use it. Components Client: this class">
+<meta name="description" content="What is unit test? A unit test is a piece of a code (usually a method) that invokes another piece of code and checks the correctness of some assumptions afterward. If the assumptions turn out to be wr">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Behavioral Design Patterns 2 -- Strategy pattern">
-<meta property="og:url" content="http://yoursite.com/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/index.html">
+<meta property="og:title" content="Unit Testing 1 -- Unit tests, Integration tests and Test-driven development">
+<meta property="og:url" content="http://yoursite.com/2017/05/04/Unit Testing 1 -- Unit tests and Integration tests/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="DefinitionDefines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary indenpendently from clients that use it. Components Client: this class">
-<meta property="og:image" content="https://www.codeproject.com/KB/architecture/455228/strategy.jpg">
-<meta property="og:updated_time" content="2017-04-25T09:39:11.962Z">
+<meta property="og:description" content="What is unit test? A unit test is a piece of a code (usually a method) that invokes another piece of code and checks the correctness of some assumptions afterward. If the assumptions turn out to be wr">
+<meta property="og:updated_time" content="2017-05-04T13:47:00.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Behavioral Design Patterns 2 -- Strategy pattern">
-<meta name="twitter:description" content="DefinitionDefines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary indenpendently from clients that use it. Components Client: this class">
-<meta name="twitter:image" content="https://www.codeproject.com/KB/architecture/455228/strategy.jpg">
+<meta name="twitter:title" content="Unit Testing 1 -- Unit tests, Integration tests and Test-driven development">
+<meta name="twitter:description" content="What is unit test? A unit test is a piece of a code (usually a method) that invokes another piece of code and checks the correctness of some assumptions afterward. If the assumptions turn out to be wr">
 
 
 
@@ -130,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/04/Unit Testing 1 -- Unit tests and Integration tests/"/>
 
 
 
 
 
-  <title>Behavioral Design Patterns 2 -- Strategy pattern | Josh's Cabinet</title>
+  <title>Unit Testing 1 -- Unit tests, Integration tests and Test-driven development | Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -265,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Behavioral Design Patterns 2 -- Strategy pattern/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/04/Unit Testing 1 -- Unit tests and Integration tests/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Josh Zhu">
@@ -286,7 +284,7 @@
             
             
               
-                Behavioral Design Patterns 2 -- Strategy pattern
+                Unit Testing 1 -- Unit tests, Integration tests and Test-driven development
               
             
           </h1>
@@ -301,8 +299,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T20:18:42+10:00">
-                2017-04-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-04T22:51:44+10:00">
+                2017-05-04
               </time>
             
 
@@ -324,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
-                    <span itemprop="name">Design Patterns</span>
+                  <a href="/categories/Unit-Testing/" itemprop="url" rel="index">
+                    <span itemprop="name">Unit Testing</span>
                   </a>
                 </span>
 
@@ -358,20 +356,60 @@
       
 
       
-        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the <strong>algorithm vary indenpendently</strong> from clients that use it.</p>
-<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ol>
-<li><strong>Client</strong>: this class uses interchangeable algorithms. It maintains <strong>a reference to StrategyBase object</strong>. </li>
-<li><strong>StrategyBase</strong>: declares an <strong>interface</strong> common to all supported algorithms.</li>
-<li><strong>ConcreteStrategy</strong>:<strong>inherited</strong> from the StrategyBase Class, provides a different algorithm.</li>
-</ol>
-<p><img src="https://www.codeproject.com/KB/architecture/455228/strategy.jpg" alt="Strategy pattern uml"></p>
+        <h2 id="What-is-unit-test"><a href="#What-is-unit-test" class="headerlink" title="What is unit test?"></a>What is unit test?</h2><ul>
+<li>A <em>unit test</em> is a piece of a code (usually a method) that invokes another piece of code and checks the correctness of some assumptions afterward.</li>
+<li>If the assumptions turn out to be wrong, the unit test has failed. </li>
+<li>A “unit” is a method or function.</li>
+</ul>
+<h2 id="Properties-of-a-good-unit-test"><a href="#Properties-of-a-good-unit-test" class="headerlink" title="Properties of a good unit test"></a>Properties of a good unit test</h2><ul>
+<li>It should be <strong>automated</strong> and <strong>repeatable</strong>.</li>
+<li>It should be <strong>easy to implement</strong>.</li>
+<li>Once written, it should remain for <strong>future use</strong>.</li>
+<li>Anyone should be able to run it.</li>
+<li>It should run at the push of a button(<strong>Good tests should be easily executed in their original form, not manually</strong>).</li>
+<li>It should run quickly.</li>
+<li><strong>Ask the following questions before write any unit test cases</strong>:<ul>
+<li>Can I run and get results from a unit test I wrote two weeks or months or years ago?</li>
+<li>Can any member of my team run and get the results from unit tests I wrote two months ago?</li>
+<li>Can I run all the unit tests I’ve written in no more than a few minutes?</li>
+<li>Can I run all the unit tests I’ve written at the push of a button?</li>
+<li>Can I write a basic unit test in no more than a few minutes?</li>
+</ul>
+</li>
+</ul>
 <a id="more"></a>
-<h2 id="Sample-code"><a href="#Sample-code" class="headerlink" title="Sample code"></a>Sample code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">Istrategy</span> &#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>)</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Strategy1</span> <span class="title">implements</span> <span class="title">Istrategy</span>&#123; </div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		System.<span class="keyword">out</span>.println(<span class="string">"operate 1"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Strategy2</span> <span class="title">implements</span> <span class="title">Istrategy</span> &#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		System.<span class="keyword">out</span>.println(<span class="string">"operate 2"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Context</span> &#123;</div><div class="line">	<span class="keyword">private</span> Istrategy strategy;</div><div class="line"> </div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Context</span>(<span class="params">Istrategy strategy</span>) </span>&#123;</div><div class="line">		<span class="keyword">this</span>.strategy = strategy;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operate</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">this</span>.strategy.operate();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Client</span> &#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params"><span class="keyword">string</span> args[]</span>) </span>&#123;</div><div class="line">		Context context;</div><div class="line">		context = <span class="keyword">new</span> Context (<span class="keyword">new</span> Strategy1());</div><div class="line">		context.operate();</div><div class="line"></div><div class="line">		context = <span class="keyword">new</span> Context (<span class="keyword">new</span> Strategy2());</div><div class="line">		context.operate();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><ol>
-<li>Provides design where <strong>client</strong> and <strong>strategies</strong> are <strong>loosely coupled</strong>.</li>
-<li><strong>Easy</strong> to <strong>add</strong> or <strong>replace</strong> or <strong>reuse</strong> clients or strategies.</li>
+<h2 id="What-is-Integration-tests"><a href="#What-is-Integration-tests" class="headerlink" title="What is Integration tests"></a>What is Integration tests</h2><p><em>Integration testing</em> means testing two or more dependent software modules as a group.</p>
+<h2 id="Drawbacks-of-integration-tests"><a href="#Drawbacks-of-integration-tests" class="headerlink" title="Drawbacks of integration tests"></a>Drawbacks of integration tests</h2><ul>
+<li>You could not run and get result from the test you wrote someting later. In this case, <strong>you don’t know whether you broke a existing feature</strong>.</li>
+<li>People are afraid of changing the existing code because when they add <strong>new features, they could not run the existing integration tests case and get the expected result</strong>.</li>
+<li>It takes time to run integration tests, people will <strong>run integration tests less often</strong>, which result in <strong>getting feedbacks later</strong> and <strong>spend more time to find bugs</strong> if there is any.</li>
+<li>It may requires some configuration or input to run the integration tests and <strong>people may avoid to run them</strong>.</li>
+<li>It takes time to write integration tests, <strong>people may not likely to write them</strong> and <strong>many parts of the core logic in the code may not be tested</strong>.</li>
+</ul>
+<h2 id="Test-driven-development"><a href="#Test-driven-development" class="headerlink" title="Test-driven development"></a>Test-driven development</h2><ul>
+<li><em>TDD</em> is test-first development, which means write tests before writing production codes.</li>
+<li><p>Process of TDD:</p>
+<ol>
+<li>Write Tests</li>
+<li>Run all tests.</li>
+<li>Write code to make tests pass.</li>
+<li>Refactor codes and fix bugs.</li>
+<li>Repeat the above steps until all tests pass.</li>
 </ol>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.codeproject.com/Articles/430590/Design-Patterns-of-Creational-Design-Patterns" target="_blank" rel="external">Design Patterns 1 of 3 - Creational Design Patterns - CodeProject</a><br><a href="https://www.google.com.au/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0ahUKEwjE74WWy7rTAhVEppQKHfqGAjoQFggiMAA&amp;url=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F9780596007126.do&amp;usg=AFQjCNF91VIwQIeGyXH4xU67GibpAiRKRA&amp;sig2=YcwhV4RTfJRpzWn3xsIcoA" target="_blank" rel="external">Head First Design Patterns - O’Reilly Media</a></p>
+</li>
+<li><p>Benefits</p>
+<ul>
+<li>Quality code</li>
+<li>Quality tests</li>
+<li>Better design of codes, reducing complexity.</li>
+<li>Make sure the code coverage of your test code.</li>
+</ul>
+</li>
+<li>Drawbacks<ul>
+<li>time to learn and implement</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -408,18 +446,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/Structural Design Patterns 1 -- Decorator pattern/" rel="next" title="Structural Design Patterns 1 -- Decorator pattern">
-                <i class="fa fa-chevron-left"></i> Structural Design Patterns 1 -- Decorator pattern
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/" rel="prev" title="Behavioral Design Patterns 1 -- Observer pattern">
-                Behavioral Design Patterns 1 -- Observer pattern <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/03/Behavioral Design Patterns 5 -- Mediator pattern/" rel="prev" title="Behavioral Design Patterns 5 -- Mediator pattern">
+                Behavioral Design Patterns 5 -- Mediator pattern <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -569,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition"><span class="nav-number">1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Components"><span class="nav-number">2.</span> <span class="nav-text">Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-code"><span class="nav-number">3.</span> <span class="nav-text">Sample code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advantages"><span class="nav-number">4.</span> <span class="nav-text">Advantages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-unit-test"><span class="nav-number">1.</span> <span class="nav-text">What is unit test?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties-of-a-good-unit-test"><span class="nav-number">2.</span> <span class="nav-text">Properties of a good unit test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Integration-tests"><span class="nav-number">3.</span> <span class="nav-text">What is Integration tests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Drawbacks-of-integration-tests"><span class="nav-number">4.</span> <span class="nav-text">Drawbacks of integration tests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-driven-development"><span class="nav-number">5.</span> <span class="nav-text">Test-driven development</span></a></li></ol></div>
             
 
           </div>
