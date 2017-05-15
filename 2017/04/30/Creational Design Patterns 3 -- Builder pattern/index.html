@@ -90,19 +90,19 @@
 
 
 
-<meta name="description" content="DefinitionDefines a manner for creating relationships between objects. This pattern translates one interface for a class into another compatible interface. It is usually implemented when requirements">
+<meta name="description" content="DefinitionSeparate the construction of a complex object from its representation so that the same construction process can create different representations, which allows for the step-by-step creation o">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Structural Design Patterns 2 -- Adapter Pattern">
-<meta property="og:url" content="http://yoursite.com/2017/05/03/Structural Design Patterns 2 -- Adapter Pattern/index.html">
+<meta property="og:title" content="Creational Design Patterns 3 -- Builder pattern">
+<meta property="og:url" content="http://yoursite.com/2017/04/30/Creational Design Patterns 3 -- Builder pattern/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="DefinitionDefines a manner for creating relationships between objects. This pattern translates one interface for a class into another compatible interface. It is usually implemented when requirements">
-<meta property="og:image" content="https://www.codeproject.com/KB/architecture/774259/extracted-png-image2.png">
-<meta property="og:updated_time" content="2017-05-03T12:09:25.420Z">
+<meta property="og:description" content="DefinitionSeparate the construction of a complex object from its representation so that the same construction process can create different representations, which allows for the step-by-step creation o">
+<meta property="og:image" content="https://www.codeproject.com/KB/architecture/430590/Builder.jpg">
+<meta property="og:updated_time" content="2017-05-15T13:07:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Structural Design Patterns 2 -- Adapter Pattern">
-<meta name="twitter:description" content="DefinitionDefines a manner for creating relationships between objects. This pattern translates one interface for a class into another compatible interface. It is usually implemented when requirements">
-<meta name="twitter:image" content="https://www.codeproject.com/KB/architecture/774259/extracted-png-image2.png">
+<meta name="twitter:title" content="Creational Design Patterns 3 -- Builder pattern">
+<meta name="twitter:description" content="DefinitionSeparate the construction of a complex object from its representation so that the same construction process can create different representations, which allows for the step-by-step creation o">
+<meta name="twitter:image" content="https://www.codeproject.com/KB/architecture/430590/Builder.jpg">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/03/Structural Design Patterns 2 -- Adapter Pattern/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/30/Creational Design Patterns 3 -- Builder pattern/"/>
 
 
 
 
 
-  <title>Structural Design Patterns 2 -- Adapter Pattern | Josh's Cabinet</title>
+  <title>Creational Design Patterns 3 -- Builder pattern | Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -265,7 +265,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/03/Structural Design Patterns 2 -- Adapter Pattern/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/30/Creational Design Patterns 3 -- Builder pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Josh Zhu">
@@ -286,7 +286,7 @@
             
             
               
-                Structural Design Patterns 2 -- Adapter Pattern
+                Creational Design Patterns 3 -- Builder pattern
               
             
           </h1>
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-03T21:28:03+10:00">
-                2017-05-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-30T20:22:00+10:00">
+                2017-04-30
               </time>
             
 
@@ -358,17 +358,19 @@
       
 
       
-        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines a manner for creating relationships between objects. This pattern translates one interface for a class into another compatible interface.</p>
-<p>It is usually implemented when requirements are changed and we must implement some functionality of classes which interfaces <strong>are not compatible with ours</strong>.</p>
+        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Separate the construction of a complex object from its representation so that the same construction process can create different representations, which allows for the step-by-step creation of complex objects using the correct sequence of action.</p>
+<p>This pattern is used when a complex object that needs to be created is constructed by <strong>constituent parts</strong> that must be <strong>created in the same order</strong> or <strong>by using a specific algorithm</strong>.</p>
 <h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ul>
-<li><strong>Client</strong>: Represents the class which wants to use the incompatible interface.</li>
-<li><strong>ITarget</strong>: Interface that is used by client.</li>
-<li><strong>Adaptee</strong>: This is the functionality which the client desires but its interface is not compatible with the client.</li>
-<li><strong>Adapter</strong>: This is the class which would implement ITarget and would call the Adaptee code which the client wants to call.<br><img src="https://www.codeproject.com/KB/architecture/774259/extracted-png-image2.png" alt="Adapter Pattern UML"></li>
+<li><strong>Builder</strong>：Interface for creating the actual products. Each step is an abstract method.</li>
+<li><strong>ConcreteBuilder</strong>：Implementation for builder.</li>
+<li><strong>Director</strong>：represent class that controls algorithm used for creation of complex object.</li>
+<li><strong>Product</strong>：complex object that is being built.</li>
 </ul>
+<p><img src="https://www.codeproject.com/KB/architecture/430590/Builder.jpg" alt="Builder Pattern UML"></p>
 <a id="more"></a>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">ITarget</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">MethodA</span>(<span class="params"></span>)</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Client</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> ITarget _iTarget &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Client</span>(<span class="params">ITarget target</span>)</span></div><div class="line">    &#123;</div><div class="line">        _iTarget = target;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Request</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        _iTarget.MethodA();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Adaptee</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MethodB</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        Console.WriteLine(<span class="string">"Adaptee's MethodB called"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Adapter</span> : <span class="title">ITarget</span></div><div class="line">&#123;</div><div class="line">    Adaptee _adaptee = <span class="keyword">new</span> Adaptee();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MethodA</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        _adaptee.MethodB();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> adapter = <span class="keyword">new</span> Adapter();</div><div class="line">        <span class="keyword">var</span> client = <span class="keyword">new</span> Client(adapter);</div><div class="line">        client.Request();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.codeproject.com/Articles/438922/Design-Patterns-of-Structural-Design-Patterns" target="_blank" rel="external">Design Patterns 2 of 3 - Structural Design Patterns - CodeProject</a><br><a href="https://www.google.com.au/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=0ahUKEwjE74WWy7rTAhVEppQKHfqGAjoQFggiMAA&amp;url=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F9780596007126.do&amp;usg=AFQjCNF91VIwQIeGyXH4xU67GibpAiRKRA&amp;sig2=YcwhV4RTfJRpzWn3xsIcoA" target="_blank" rel="external">Head First Design Patterns - O’Reilly Media</a></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">DirectorCashier</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">BuildFood</span>(<span class="params">Builder builder</span>)</span></div><div class="line">    &#123;</div><div class="line">        builder.BuildPart1();</div><div class="line">        builder.BuildPart2();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Builder</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">BuildPart1</span>(<span class="params"></span>)</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">BuildPart2</span>(<span class="params"></span>)</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Product <span class="title">GetProduct</span>(<span class="params"></span>)</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ConcreteBuilder1</span> : <span class="title">Builder</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">protected</span> Product _product;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ConcreteBuilder1</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        _product = <span class="keyword">new</span> Product();</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">BuildPart1</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>._product.Add(<span class="string">"Hamburger"</span>, <span class="string">"2"</span>);</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">BuildPart2</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>._product.Add(<span class="string">"Drink"</span>, <span class="string">"1"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> Product <span class="title">GetProduct</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._product;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Product</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">string</span>&gt; products = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">string</span>&gt;();</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Add</span>(<span class="params"><span class="keyword">string</span> name, <span class="keyword">string</span> <span class="keyword">value</span></span>)</span></div><div class="line">    &#123;</div><div class="line">        products.Add(name, <span class="keyword">value</span>);</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ShowToClient</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">foreach</span> (<span class="keyword">var</span> p <span class="keyword">in</span> products)</div><div class="line">        &#123;</div><div class="line">            Console.WriteLine(<span class="string">$"<span class="subst">&#123;p.Key&#125;</span> <span class="subst">&#123;p.Value&#125;</span>"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BuilderPatternRunner</span> : <span class="title">IPattterRunner</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RunPattern</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> Builder1 = <span class="keyword">new</span> ConcreteBuilder1();</div><div class="line">        <span class="keyword">var</span> Director = <span class="keyword">new</span> DirectorCashier();</div><div class="line"></div><div class="line">        Director.BuildFood(Builder1);</div><div class="line">        Builder1.GetProduct().ShowToClient();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.codeproject.com/Articles/430590/Design-Patterns-of-Creational-Design-Patterns" target="_blank" rel="external">Design Patterns 1 of 3 - Creational Design Patterns - CodeProject</a></p>
+<p><a href="https://www.codeproject.com/Articles/1137307/Factory-Patterns-Abstract-Factory-Pattern" target="_blank" rel="external">Factory Patterns - Abstract Factory Pattern - CodeProject</a></p>
 
       
     </div>
@@ -405,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/03/Behavioral Design Patterns 4 -- Template method pattern/" rel="next" title="Behavioral Design Patterns 4 -- Template method pattern">
-                <i class="fa fa-chevron-left"></i> Behavioral Design Patterns 4 -- Template method pattern
+              <a href="/2017/04/30/Behavioral Design Patterns 3 -- Command pattern/" rel="next" title="Behavioral Design Patterns 3 -- Command pattern">
+                <i class="fa fa-chevron-left"></i> Behavioral Design Patterns 3 -- Command pattern
               </a>
             
           </div>
@@ -415,8 +417,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/30/Behavioral Design Patterns 3 -- Command pattern/" rel="prev" title="Behavioral Design Patterns 3 -- Command pattern">
-                Behavioral Design Patterns 3 -- Command pattern <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/25/Effective C Sharp -- 12. Avoid Creating Unnecessary Objects/" rel="prev" title="Effective C# -- 12. Avoid Creating Unnecessary Objects">
+                Effective C# -- 12. Avoid Creating Unnecessary Objects <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

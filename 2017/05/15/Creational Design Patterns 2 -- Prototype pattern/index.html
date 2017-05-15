@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="C# has two different version of constants: compile-time constants and runtime constants. Runtime time constants is slower but correct than Compile constants. 1234// Compile time constant:public const">
+<meta name="description" content="DefinitionSpecify the kind of objects to create using a prototypical instance, and create new objects by copying this prototype, which is used to instantiate a class by copying, or cloning, the proper">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Effective C# -- 2. Prefer readonly to const">
-<meta property="og:url" content="http://yoursite.com/2017/04/25/Effective C Sharp -- 2. Prefer readonly to const/index.html">
+<meta property="og:title" content="Creational Design Patterns 2 -- Prototype pattern">
+<meta property="og:url" content="http://yoursite.com/2017/05/15/Creational Design Patterns 2 -- Prototype pattern/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="C# has two different version of constants: compile-time constants and runtime constants. Runtime time constants is slower but correct than Compile constants. 1234// Compile time constant:public const">
-<meta property="og:updated_time" content="2017-04-25T13:27:34.155Z">
+<meta property="og:description" content="DefinitionSpecify the kind of objects to create using a prototypical instance, and create new objects by copying this prototype, which is used to instantiate a class by copying, or cloning, the proper">
+<meta property="og:image" content="https://www.codeproject.com/KB/architecture/430590/Prototype.jpg">
+<meta property="og:updated_time" content="2017-05-15T13:06:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Effective C# -- 2. Prefer readonly to const">
-<meta name="twitter:description" content="C# has two different version of constants: compile-time constants and runtime constants. Runtime time constants is slower but correct than Compile constants. 1234// Compile time constant:public const">
+<meta name="twitter:title" content="Creational Design Patterns 2 -- Prototype pattern">
+<meta name="twitter:description" content="DefinitionSpecify the kind of objects to create using a prototypical instance, and create new objects by copying this prototype, which is used to instantiate a class by copying, or cloning, the proper">
+<meta name="twitter:image" content="https://www.codeproject.com/KB/architecture/430590/Prototype.jpg">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 2. Prefer readonly to const/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/15/Creational Design Patterns 2 -- Prototype pattern/"/>
 
 
 
 
 
-  <title>Effective C# -- 2. Prefer readonly to const | Josh's Cabinet</title>
+  <title>Creational Design Patterns 2 -- Prototype pattern | Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -263,7 +265,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 2. Prefer readonly to const/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/Creational Design Patterns 2 -- Prototype pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Josh Zhu">
@@ -284,7 +286,7 @@
             
             
               
-                Effective C# -- 2. Prefer readonly to const
+                Creational Design Patterns 2 -- Prototype pattern
               
             
           </h1>
@@ -299,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T21:55:55+10:00">
-                2017-04-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-15T23:05:20+10:00">
+                2017-05-15
               </time>
             
 
@@ -322,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Net/" itemprop="url" rel="index">
-                    <span itemprop="name">.Net</span>
+                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Patterns</span>
                   </a>
                 </span>
 
@@ -356,18 +358,18 @@
       
 
       
-        <ol>
-<li>C# has two different version of constants: <strong>compile-time</strong> constants and <strong>runtime</strong> constants.</li>
-<li><p>Runtime time constants is slower but correct than Compile constants.</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Compile time constant:</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> Millennium = <span class="number">2000</span>;</div><div class="line"><span class="comment">// Runtime constant:</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">int</span> ThisYear = <span class="number">2004</span>;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Compile-time constants can also be <strong>declared inside methods</strong>. Read-only constants cannot be declared with method scope.</p>
-</li>
-<li><p>A compile-time constant is replaced with the value of that constant in your object code. Runtime constants are evaluated at runtime ( <strong>Read-only values are also constants, in that they cannot be modified after the con- structor has executed.</strong>), The IL generated when you reference a read-only constant references the readonly variable, not the value.</p>
-</li>
-<li><p>Compile-time constants can be used only for <strong>primitive types (built-in integral and floating-point types), enums, or strings</strong>. Runtime constants can be <strong>any type</strong>. You must <strong>initialize them in a constructo</strong>r, or you can use an initializer.</p>
-</li>
-</ol>
+        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Specify the kind of objects to create using a prototypical instance, and create new objects by copying this prototype, which is <strong>used to instantiate a class by copying, or cloning, the properties of an existing object</strong>. </p>
+<h2 id="When-to-use-it"><a href="#When-to-use-it" class="headerlink" title="When to use it"></a>When to use it</h2><p>When objects has a lot of properties which must be filled and the quantity of time you spent on to create this object instance was enormous.<br>This copy duplicates <strong>all of the properties and fields of original object</strong>. <strong>If a property is reference type, the reference is copied too</strong>.</p>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ul>
+<li>Client：The application object that need the cloned copy of the object</li>
+<li>Prototype：This is an interface or abstract class that defined the method to clone itself, contains a virtual method Clone().</li>
+<li>ConcretePrototype：This is the concrete class that will clone itself.</li>
+</ul>
+<p><img src="https://www.codeproject.com/KB/architecture/430590/Prototype.jpg" alt="Prototype Pattern UML"></p>
+<a id="more"></a>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">IPrototype</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Id &#123; <span class="keyword">set</span>; <span class="keyword">get</span>; &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> IPrototype <span class="title">Copy</span>(<span class="params"></span>)</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ConcretePrototype</span> : <span class="title">IPrototype</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ConcretePrototype</span>(<span class="params"><span class="keyword">string</span> id</span>)</span></div><div class="line">    &#123;</div><div class="line">        Id = id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> IPrototype <span class="title">Copy</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> (IPrototype) <span class="keyword">this</span>.MemberwiseClone();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//Client class</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Client</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> prototype = <span class="keyword">new</span> ConcretePrototype(<span class="string">"1"</span>);</div><div class="line">        <span class="keyword">var</span> clone = prototype.Copy();</div><div class="line">        Console.WriteLine(<span class="string">"Clone: &#123;0&#125;"</span>, clone.Id);</div><div class="line">        Console.ReadLine();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.codeproject.com/Articles/430590/Design-Patterns-of-Creational-Design-Patterns" target="_blank" rel="external">Design Patterns 1 of 3 - Creational Design Patterns - CodeProject</a></p>
+<p><a href="https://www.codeproject.com/Articles/1137307/Factory-Patterns-Abstract-Factory-Pattern" target="_blank" rel="external">Factory Patterns - Abstract Factory Pattern - CodeProject</a></p>
 
       
     </div>
@@ -404,18 +406,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/Effective C Sharp -- 3. Prefer the is or as to Casts/" rel="next" title="Effective C# -- 3. Prefer the is or as to Casts">
-                <i class="fa fa-chevron-left"></i> Effective C# -- 3. Prefer the is or as to Casts
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/25/Effective C Sharp -- 1. Use properties instead of Accessible Data Member/" rel="prev" title="Effective C# -- 1. Use properties instead of Accessible Data Member">
-                Effective C# -- 1. Use properties instead of Accessible Data Member <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/15/Creational Design Patterns 1 -- Factory pattern/" rel="prev" title="Creational Design Patterns 1 -- Factory pattern">
+                Creational Design Patterns 1 -- Factory pattern <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -463,8 +461,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg"
@@ -546,6 +553,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition"><span class="nav-number">1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#When-to-use-it"><span class="nav-number">2.</span> <span class="nav-text">When to use it</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Components"><span class="nav-number">3.</span> <span class="nav-text">Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">4.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
