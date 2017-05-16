@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="DefinitionDefines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps. Components AbstractClass: Defines a group of basic methods and template methods.">
+<meta name="description" content="Definition Defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.  Components AbstractClass: Defines a group of basic methods and template methods">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Behavioral Design Patterns 4 -- Template method pattern">
 <meta property="og:url" content="http://yoursite.com/2017/05/03/Behavioral Design Patterns 4 -- Template method pattern/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="DefinitionDefines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps. Components AbstractClass: Defines a group of basic methods and template methods.">
+<meta property="og:description" content="Definition Defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.  Components AbstractClass: Defines a group of basic methods and template methods">
 <meta property="og:image" content="https://www.codeproject.com/KB/architecture/455228/template_method.jpg">
-<meta property="og:updated_time" content="2017-05-03T12:09:36.000Z">
+<meta property="og:updated_time" content="2017-05-16T11:16:41.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Behavioral Design Patterns 4 -- Template method pattern">
-<meta name="twitter:description" content="DefinitionDefines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps. Components AbstractClass: Defines a group of basic methods and template methods.">
+<meta name="twitter:description" content="Definition Defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.  Components AbstractClass: Defines a group of basic methods and template methods">
 <meta name="twitter:image" content="https://www.codeproject.com/KB/architecture/455228/template_method.jpg">
 
 
@@ -358,11 +358,14 @@
       
 
       
-        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.</p>
+        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.</p>
+</blockquote>
 <h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ol>
 <li><strong>AbstractClass</strong>: Defines a group of <strong>basic methods</strong> and <strong>template methods</strong>. <strong>Template Methods</strong> define the order of executing basic methods. <strong>Basic Methods</strong> let subclasses to override or implement。</li>
-<li><strong>ConcreteClass</strong>：Inheret from Abstract Class that implements the basic methods which defined by Abstract Class.<br><img src="https://www.codeproject.com/KB/architecture/455228/template_method.jpg" alt="Template Method Pattern UML"></li>
+<li><strong>ConcreteClass</strong>：Inheret from Abstract Class that implements the basic methods which defined by Abstract Class.</li>
 </ol>
+<p><img src="https://www.codeproject.com/KB/architecture/455228/template_method.jpg" alt="Template Method Pattern UML"></p>
 <a id="more"></a>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Abstract Class</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">AbstractClass</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//basic methods</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">SimpleMethod1</span>(<span class="params"></span>)</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">SimpleMethod2</span>(<span class="params"></span>)</span>;</div><div class="line"></div><div class="line">    <span class="comment">//template methods</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">templateMethod</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        SimpleMethod1();</div><div class="line">        SimpleMethod2();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//Concrete methods</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ConcreteClass</span> : <span class="title">AbstractClass</span></div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">SimpleMethod1</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        Console.WriteLine(<span class="string">"method1"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">SimpleMethod2</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        Console.WriteLine(<span class="string">"method2"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//Client class</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Client</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params">String[] args</span>)</span></div><div class="line">    &#123;</div><div class="line">        ConcreteClass class1 = <span class="keyword">new</span> ConcreteClass();</div><div class="line">        class1.templateMethod();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><ol>
@@ -491,7 +494,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

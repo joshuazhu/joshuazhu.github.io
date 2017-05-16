@@ -263,6 +263,308 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 2. Prefer readonly to const/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Josh Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Josh's Cabinet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/Effective C Sharp -- 2. Prefer readonly to const/" itemprop="url">
+                  Effective C# -- 2. Prefer readonly to const
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T21:55:55+10:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Net/" itemprop="url" rel="index">
+                    <span itemprop="name">.Net</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>C# has two different version of constants: <strong>compile-time</strong> constants and <strong>runtime</strong> constants.</li>
+<li><p>Runtime time constants is slower but correct than Compile constants.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Compile time constant:</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">int</span> Millennium = <span class="number">2000</span>;</div><div class="line"><span class="comment">// Runtime constant:</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">int</span> ThisYear = <span class="number">2004</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Compile-time constants can also be <strong>declared inside methods</strong>. Read-only constants cannot be declared with method scope.</p>
+</li>
+<li><p>A compile-time constant is replaced with the value of that constant in your object code. Runtime constants are evaluated at runtime ( <strong>Read-only values are also constants, in that they cannot be modified after the con- structor has executed.</strong>), The IL generated when you reference a read-only constant references the readonly variable, not the value.</p>
+</li>
+<li><p>Compile-time constants can be used only for <strong>primitive types (built-in integral and floating-point types), enums, or strings</strong>. Runtime constants can be <strong>any type</strong>. You must <strong>initialize them in a constructo</strong>r, or you can use an initializer.</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 1. Use properties instead of Accessible Data Member/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Josh Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Josh's Cabinet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/Effective C Sharp -- 1. Use properties instead of Accessible Data Member/" itemprop="url">
+                  Effective C# -- 1. Use properties instead of Accessible Data Member
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T21:54:44+10:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Net/" itemprop="url" rel="index">
+                    <span itemprop="name">.Net</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li>Public data members are <strong>bad practice</strong>.</li>
+<li>Properties let you expose data members as part of your public interface and still provide the <strong>encapsulation</strong> you want in an object-oriented environment.</li>
+<li><p>Properties are implemented with methods, adding <strong>multithreaded</strong> support is easier.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/25/Effective C Sharp -- 1. Use properties instead of Accessible Data Member/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Structural Design Patterns 1 -- Decorator pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -360,7 +662,9 @@
 
       
         
-          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Attaches additional responsibilities to an object dynamically. Decorators provide a flexible <strong>alternative to subclassing</strong> for <strong>extending functionality</strong>.</p>
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Attaches additional responsibilities to an object dynamically. Decorators provide a flexible <strong>alternative to subclassing</strong> for <strong>extending functionality</strong>.</p>
+</blockquote>
 <h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ol>
 <li><strong>ComponentBase</strong>: base class for all concrete components and decorators.</li>
 <li><strong>ConcreteComponent</strong>: inherits from <strong>ComponentBase</strong>. Concrete component classes that may be wrapped by the decorators.</li>
@@ -513,11 +817,13 @@
 
       
         
-          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the <strong>algorithm vary indenpendently</strong> from clients that use it.</p>
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the <strong>algorithm vary indenpendently</strong> from clients that use it.</p>
+</blockquote>
 <h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ol>
 <li><strong>Client</strong>: this class uses interchangeable algorithms. It maintains <strong>a reference to StrategyBase object</strong>. </li>
 <li><strong>StrategyBase</strong>: declares an <strong>interface</strong> common to all supported algorithms.</li>
-<li><strong>ConcreteStrategy</strong>:<strong>inherited</strong> from the StrategyBase Class, provides a different algorithm.</li>
+<li><strong>ConcreteStrategy</strong>: <strong>inherited</strong> from the StrategyBase Class, provides a different algorithm.</li>
 </ol>
 <p><img src="https://www.codeproject.com/KB/architecture/455228/strategy.jpg" alt="Strategy pattern uml"></p>
           <!--noindex-->
@@ -665,13 +971,16 @@
 
       
         
-          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically.</p>
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically.</p>
+</blockquote>
 <h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ol>
 <li><strong>SubjectBase</strong>: base class of all subjects.<br> a. Contains a <strong>list</strong> of <strong>observers</strong> that are subscribed to the subject and methods.<br> b. A <strong>Notify</strong> method loops through the list of observers to call <strong>their notify</strong> method.</li>
 <li><strong>ConcreteSubject</strong>: concrete implementation of base subject.</li>
 <li><strong>ObserverBase</strong>: base class of observers, contains methods which is called when a subject’s state changes.</li>
-<li><strong>ConcreteObserver</strong>: concrete implementation of base observer.<br><img src="https://www.codeproject.com/KB/architecture/455228/observer.jpg" alt="Observer pattern UML"></li>
+<li><strong>ConcreteObserver</strong>: concrete implementation of base observer.</li>
 </ol>
+<p><img src="https://www.codeproject.com/KB/architecture/455228/observer.jpg" alt="Observer pattern UML"></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/25/Behavioral Design Patterns 1 -- Observer pattern/#more" rel="contents">
@@ -760,7 +1069,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

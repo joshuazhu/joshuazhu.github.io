@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="A static constructor executes before any other methods to initialize static member variables.  Should not use any instance constructors, private function or idiom to initialize static variables.  Cou">
+<meta name="description" content="Definition This pattern ensures a class has only one instance, and provides a global point of access to it.  The base idea of singleton pattern is to centralise management of internal or external reso">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Effective C# -- 9. Use Proper Initialization for Static Class Members">
-<meta property="og:url" content="http://yoursite.com/2017/04/25/Effective C Sharp -- 9. Use Proper Initialization for Static Class Members/index.html">
+<meta property="og:title" content="Creational Design Patterns 4 -- Singleton pattern">
+<meta property="og:url" content="http://yoursite.com/2017/05/16/Creational Design Patterns 4 -- Singleton pattern/index.html">
 <meta property="og:site_name" content="Josh's Cabinet">
-<meta property="og:description" content="A static constructor executes before any other methods to initialize static member variables.  Should not use any instance constructors, private function or idiom to initialize static variables.  Cou">
-<meta property="og:updated_time" content="2017-04-25T13:27:53.920Z">
+<meta property="og:description" content="Definition This pattern ensures a class has only one instance, and provides a global point of access to it.  The base idea of singleton pattern is to centralise management of internal or external reso">
+<meta property="og:image" content="https://www.codeproject.com/KB/architecture/430590/Singleton.jpg">
+<meta property="og:updated_time" content="2017-05-16T12:09:33.478Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Effective C# -- 9. Use Proper Initialization for Static Class Members">
-<meta name="twitter:description" content="A static constructor executes before any other methods to initialize static member variables.  Should not use any instance constructors, private function or idiom to initialize static variables.  Cou">
+<meta name="twitter:title" content="Creational Design Patterns 4 -- Singleton pattern">
+<meta name="twitter:description" content="Definition This pattern ensures a class has only one instance, and provides a global point of access to it.  The base idea of singleton pattern is to centralise management of internal or external reso">
+<meta name="twitter:image" content="https://www.codeproject.com/KB/architecture/430590/Singleton.jpg">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 9. Use Proper Initialization for Static Class Members/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/16/Creational Design Patterns 4 -- Singleton pattern/"/>
 
 
 
 
 
-  <title>Effective C# -- 9. Use Proper Initialization for Static Class Members | Josh's Cabinet</title>
+  <title>Creational Design Patterns 4 -- Singleton pattern | Josh's Cabinet</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -263,7 +265,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 9. Use Proper Initialization for Static Class Members/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/Creational Design Patterns 4 -- Singleton pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Josh Zhu">
@@ -284,7 +286,7 @@
             
             
               
-                Effective C# -- 9. Use Proper Initialization for Static Class Members
+                Creational Design Patterns 4 -- Singleton pattern
               
             
           </h1>
@@ -299,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T23:00:26+10:00">
-                2017-04-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-16T22:08:48+10:00">
+                2017-05-16
               </time>
             
 
@@ -322,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Net/" itemprop="url" rel="index">
-                    <span itemprop="name">.Net</span>
+                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Patterns</span>
                   </a>
                 </span>
 
@@ -356,22 +358,17 @@
       
 
       
-        <ol>
-<li><p>A static constructor executes before any other methods to initialize static member variables.</p>
-</li>
-<li><p><strong>Should not use any instance constructors, private function or idiom to initialize static variables.</strong></p>
-</li>
-<li><p>Could use  <strong>initializer syntax</strong> as an <strong>alternative</strong> to the <strong>static constructor</strong>. If have more complicated logic for initialization, create a static constructor.</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MySingleton2</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> MySingleton2 theOneAndOnly;</div><div class="line"></div><div class="line">    <span class="comment">// static constructor</span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="title">MySingleton2</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        theOneAndOnly = <span class="keyword">new</span> MySingleton2();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MySingleton2 TheOnly</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">get</span> &#123; <span class="keyword">return</span> theOneAndOnly; &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MySingleton2</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// remainder elided</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Static constructor:</p>
-<ul>
-<li>Can define <strong>only one</strong> static constructor.</li>
-<li>Must <strong>not</strong> take any <strong>arguments</strong>.</li>
-<li>Will be called by <strong>CLR</strong>, if an exception escape  a static constructor, <strong>CLR will terminate program</strong>.</li>
+        <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>This pattern ensures a class has only one instance, and provides a global point of access to it.</p>
+</blockquote>
+<p>The base idea of singleton pattern is to centralise management of internal or external resources and to provide a global point to access to this resources.</p>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ul>
+<li><strong>Singleton</strong>: Contains a static method called _GetSingleton<strong> which returns the single instance held in </strong>private__ variable.</li>
 </ul>
-</li>
-</ol>
+<p><img src="https://www.codeproject.com/KB/architecture/430590/Singleton.jpg" alt="Singleton UML"></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">Singleton</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton _instance;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">object</span> _lockThis = <span class="keyword">new</span> <span class="keyword">object</span>();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">GetSingleton</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (_instance == <span class="literal">null</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">lock</span> (_lockThis)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span> (_instance == <span class="literal">null</span>)</div><div class="line">                &#123;</div><div class="line">                    _instance = <span class="keyword">new</span> Singleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> _instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SingletonPatternRunner</span> : <span class="title">IPatterRunner</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RunPattern</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> singleton1 = Singleton.GetSingleton();</div><div class="line">        <span class="keyword">var</span> singleton2 = Singleton.GetSingleton();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.codeproject.com/Articles/430590/Design-Patterns-of-Creational-Design-Patterns" target="_blank" rel="external">Design Patterns 1 of 3 - Creational Design Patterns - CodeProject</a></p>
+<p><a href="https://www.codeproject.com/Articles/1137307/Factory-Patterns-Abstract-Factory-Pattern" target="_blank" rel="external">Factory Patterns - Abstract Factory Pattern - CodeProject</a></p>
 
       
     </div>
@@ -408,18 +405,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/Effective C Sharp -- 11. Utilize using and try and finally for Resource Cleanup/" rel="next" title="Effective C# -- 11. Utilize using and try/finally for Resource Cleanup">
-                <i class="fa fa-chevron-left"></i> Effective C# -- 11. Utilize using and try/finally for Resource Cleanup
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/25/Effective C Sharp -- 8. Prefer Member Initializers to Assignment Statements/" rel="prev" title="Effective C# -- 8. Prefer Member Initializers to Assignment Statements">
-                Effective C# -- 8. Prefer Member Initializers to Assignment Statements <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/16/Structural Design Patterns 3 -- Proxy Pattern/" rel="prev" title="Structural Design Patterns 3 -- Proxy Pattern">
+                Structural Design Patterns 3 -- Proxy Pattern <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -467,8 +460,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg"
@@ -550,6 +552,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition"><span class="nav-number">1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Components"><span class="nav-number">2.</span> <span class="nav-text">Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

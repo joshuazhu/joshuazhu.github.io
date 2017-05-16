@@ -263,6 +263,312 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/Creational Design Patterns 4 -- Singleton pattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Josh Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Josh's Cabinet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/16/Creational Design Patterns 4 -- Singleton pattern/" itemprop="url">
+                  Creational Design Patterns 4 -- Singleton pattern
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-16T22:08:48+10:00">
+                2017-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Patterns</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>This pattern ensures a class has only one instance, and provides a global point of access to it.</p>
+</blockquote>
+<p>The base idea of singleton pattern is to centralise management of internal or external resources and to provide a global point to access to this resources.</p>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ul>
+<li><strong>Singleton</strong>: Contains a static method called _GetSingleton<strong> which returns the single instance held in </strong>private__ variable.</li>
+</ul>
+<p><img src="https://www.codeproject.com/KB/architecture/430590/Singleton.jpg" alt="Singleton UML"></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">sealed</span> <span class="keyword">class</span> <span class="title">Singleton</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton _instance;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">object</span> _lockThis = <span class="keyword">new</span> <span class="keyword">object</span>();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">GetSingleton</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (_instance == <span class="literal">null</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">lock</span> (_lockThis)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span> (_instance == <span class="literal">null</span>)</div><div class="line">                &#123;</div><div class="line">                    _instance = <span class="keyword">new</span> Singleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> _instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SingletonPatternRunner</span> : <span class="title">IPatterRunner</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RunPattern</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> singleton1 = Singleton.GetSingleton();</div><div class="line">        <span class="keyword">var</span> singleton2 = Singleton.GetSingleton();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.codeproject.com/Articles/430590/Design-Patterns-of-Creational-Design-Patterns" target="_blank" rel="external">Design Patterns 1 of 3 - Creational Design Patterns - CodeProject</a></p>
+<p><a href="https://www.codeproject.com/Articles/1137307/Factory-Patterns-Abstract-Factory-Pattern" target="_blank" rel="external">Factory Patterns - Abstract Factory Pattern - CodeProject</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/Structural Design Patterns 3 -- Proxy Pattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Josh Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Josh's Cabinet">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/16/Structural Design Patterns 3 -- Proxy Pattern/" itemprop="url">
+                  Structural Design Patterns 3 -- Proxy Pattern
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-16T21:03:28+10:00">
+                2017-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Patterns/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Patterns</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Provide a surrogate or placeholder for another object to control access to it. This pattern can be used when we don’t want to access the resource or subject directly.</p>
+</blockquote>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ul>
+<li><strong>Subject</strong>: Provides an interface that both <strong>actual</strong> and <strong>proxy</strong> class will implement. In this way the proxy <strong>can easily be used as a substitute for real subject</strong>.</li>
+<li><strong>Proxy</strong>: This class will be <strong>used by the applications</strong> and will expose the methods exposed by the Subject.</li>
+<li><strong>RealSubject</strong>: Real object that contains the actual logic to retrieve the data/functionality, which <strong>represented by the proxy</strong>.</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3131810-508eba3a450b3cd1.gif?imageMogr2/auto-orient/strip" alt="Proxy Pattern UML"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/16/Structural Design Patterns 3 -- Proxy Pattern/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/Creational Design Patterns 2 -- Prototype pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -360,7 +666,9 @@
 
       
         
-          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Specify the kind of objects to create using a prototypical instance, and create new objects by copying this prototype, which is <strong>used to instantiate a class by copying, or cloning, the properties of an existing object</strong>. </p>
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Specify the kind of objects to create using a prototypical instance, and create new objects by copying this prototype, which is <strong>used to instantiate a class by copying, or cloning, the properties of an existing object</strong>. </p>
+</blockquote>
 <h2 id="When-to-use-it"><a href="#When-to-use-it" class="headerlink" title="When to use it"></a>When to use it</h2><p>When objects has a lot of properties which must be filled and the quantity of time you spent on to create this object instance was enormous.<br>This copy duplicates <strong>all of the properties and fields of original object</strong>. <strong>If a property is reference type, the reference is copied too</strong>.</p>
 <h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ul>
 <li>Client：The application object that need the cloned copy of the object</li>
@@ -513,7 +821,9 @@
 
       
         
-          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Define an interface for creating an object, but let subclasses decide which class to instantiate. The Factory method lets a class defer instantiation it uses to subclasses</p>
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Define an interface for creating an object, but let subclasses decide which class to instantiate. The Factory method lets a class defer instantiation it uses to subclasses</p>
+</blockquote>
 <h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><ol>
 <li>Good <strong>Encapsulation</strong>: The called only need to care about the class name, which helps to decouple interdependence.</li>
 <li>Good <strong>Expandability</strong>: Product class can be easily added by modifying or extending subclasses.</li>
@@ -831,7 +1141,9 @@
 
       
         
-          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Allows people to <strong>decouple</strong> the direct communication between objects by introducing a <strong>Meditator</strong>, which is used to implementing the <strong>communication between the objects</strong>.</p>
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Allows people to <strong>decouple</strong> the direct communication between objects by introducing a <strong>Meditator</strong>, which is used to implementing the <strong>communication between the objects</strong>.</p>
+</blockquote>
 <p>The mediator is the <strong>communication center</strong> for the objects. Instead of communicating to other objects directly, <strong>objects call mediator to send their messages to the destination object</strong>.</p>
 <h2 id="When-to-use-Mediator-Pattern"><a href="#When-to-use-Mediator-Pattern" class="headerlink" title="When to use Mediator Pattern"></a>When to use Mediator Pattern</h2><ol>
 <li>When N (n &gt;= 2) objects depend on each other.</li>
@@ -1006,11 +1318,14 @@
 
       
         
-          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.</p>
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.</p>
+</blockquote>
 <h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ol>
 <li><strong>AbstractClass</strong>: Defines a group of <strong>basic methods</strong> and <strong>template methods</strong>. <strong>Template Methods</strong> define the order of executing basic methods. <strong>Basic Methods</strong> let subclasses to override or implement。</li>
-<li><strong>ConcreteClass</strong>：Inheret from Abstract Class that implements the basic methods which defined by Abstract Class.<br><img src="https://www.codeproject.com/KB/architecture/455228/template_method.jpg" alt="Template Method Pattern UML"></li>
+<li><strong>ConcreteClass</strong>：Inheret from Abstract Class that implements the basic methods which defined by Abstract Class.</li>
 </ol>
+<p><img src="https://www.codeproject.com/KB/architecture/455228/template_method.jpg" alt="Template Method Pattern UML"></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/03/Behavioral Design Patterns 4 -- Template method pattern/#more" rel="contents">
@@ -1156,14 +1471,17 @@
 
       
         
-          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Defines a manner for creating relationships between objects. This pattern translates one interface for a class into another compatible interface.</p>
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Defines a manner for creating relationships between objects. This pattern translates one interface for a class into another compatible interface.</p>
+</blockquote>
 <p>It is usually implemented when requirements are changed and we must implement some functionality of classes which interfaces <strong>are not compatible with ours</strong>.</p>
 <h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ul>
 <li><strong>Client</strong>: Represents the class which wants to use the incompatible interface.</li>
 <li><strong>ITarget</strong>: Interface that is used by client.</li>
 <li><strong>Adaptee</strong>: This is the functionality which the client desires but its interface is not compatible with the client.</li>
-<li><strong>Adapter</strong>: This is the class which would implement ITarget and would call the Adaptee code which the client wants to call.<br><img src="https://www.codeproject.com/KB/architecture/774259/extracted-png-image2.png" alt="Adapter Pattern UML"></li>
+<li><strong>Adapter</strong>: This is the class which would implement ITarget and would call the Adaptee code which the client wants to call.</li>
 </ul>
+<p><img src="https://www.codeproject.com/KB/architecture/774259/extracted-png-image2.png" alt="Adapter Pattern UML"></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/03/Structural Design Patterns 2 -- Adapter Pattern/#more" rel="contents">
@@ -1309,7 +1627,9 @@
 
       
         
-          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>The command pattern is a design pattern that enables <strong>all of the information for a request to be contained within a single object</strong>. The command can then be invoked as required, often as part of a batch of queued commands with rollback capabilities.</p>
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>The command pattern is a design pattern that enables <strong>all of the information for a request to be contained within a single object</strong>. The command can then be invoked as required, often as part of a batch of queued commands with rollback capabilities.</p>
+</blockquote>
 <h2 id="When-to-use-Command-pattern"><a href="#When-to-use-Command-pattern" class="headerlink" title="When to use Command pattern"></a>When to use Command pattern</h2><ol>
 <li>When it is required to separate invoker and receiver.</li>
 <li>When system needs to generate, queue and execute requests in different time.</li>
@@ -1468,7 +1788,9 @@
 
       
         
-          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>Separate the construction of a complex object from its representation so that the same construction process can create different representations, which allows for the step-by-step creation of complex objects using the correct sequence of action.</p>
+          <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Separate the construction of a complex object from its representation so that the same construction process can create different representations, which allows for the step-by-step creation of complex objects using the correct sequence of action.</p>
+</blockquote>
 <p>This pattern is used when a complex object that needs to be created is constructed by <strong>constituent parts</strong> that must be <strong>created in the same order</strong> or <strong>by using a specific algorithm</strong>.</p>
 <h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><ul>
 <li><strong>Builder</strong>：Interface for creating the actual products. Each step is an abstract method.</li>
@@ -1480,315 +1802,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/30/Creational Design Patterns 3 -- Builder pattern/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 12. Avoid Creating Unnecessary Objects/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Josh Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Josh's Cabinet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/25/Effective C Sharp -- 12. Avoid Creating Unnecessary Objects/" itemprop="url">
-                  Effective C# -- 12. Avoid Creating Unnecessary Objects
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T23:13:56+10:00">
-                2017-04-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Net/" itemprop="url" rel="index">
-                    <span itemprop="name">.Net</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ol>
-<li><p>All reference types, even local variables, are allocated on the <strong>heap</strong>.</p>
-<ul>
-<li><p>One very common bad practice is to allocate GDI objects in a Windows paint handler.</p>
-</li>
-<li><p>Should promote <strong>local variables</strong> to <strong>member variables</strong> when they are reference types, they will be used in routines that are called frequently. <strong>Only</strong> local variables in <strong>routines that are frequently accessed are good candidates</strong>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/25/Effective C Sharp -- 12. Avoid Creating Unnecessary Objects/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Effective C Sharp -- 11. Utilize using and try and finally for Resource Cleanup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Josh Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOBAAAAJGQzNWNlM2JmLWVlNzItNDBkMi05YTIzLTA0NTcxOTdkOTgwYw.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Josh's Cabinet">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/25/Effective C Sharp -- 11. Utilize using and try and finally for Resource Cleanup/" itemprop="url">
-                  Effective C# -- 11. Utilize using and try/finally for Resource Cleanup
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T23:10:07+10:00">
-                2017-04-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Net/" itemprop="url" rel="index">
-                    <span itemprop="name">.Net</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ol>
-<li><p>Anytime you use types that have a <strong>Dispose()</strong> method, it’s your responsibility to <strong>release those resources by calling Dispose()</strong>. <strong>Best way</strong> to ensure that <strong>Dispose()</strong> always gets called is to utilize the <strong>using</strong> statement or a <strong>try/finally block</strong>.</p>
-</li>
-<li><ul>
-<li>All types own unmanaged resources <strong>implement</strong> the <strong>IDisposable interface</strong>.</li>
-<li>They all created a <strong>finalizer</strong>.</li>
-<li>Nonmemory resources are freed later when finalizer get chance to execute.</li>
-</ul>
-</li>
-<li><p>The using statement ensures that Dispose() is called. Using a using statement, the C# compiler <strong>generates a try/finally block</strong> around each object.</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Example Using clause:</span></div><div class="line"><span class="keyword">using</span> (myConnection = <span class="keyword">new</span> SqlConnection(connString))</div><div class="line">&#123;</div><div class="line">    myConnection.Open();</div><div class="line">&#125;</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// example Try / Catch block:</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">    myConnection = <span class="keyword">new</span> SqlConnection(connString);</div><div class="line">    myConnection.Open();</div><div class="line">&#125;</div><div class="line"><span class="keyword">finally</span></div><div class="line">&#123;</div><div class="line">    myConnection.Dispose();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>The using statement <strong>works only</strong> if the compile-time type supports the <strong>IDisposable</strong> interface, <strong>as</strong> clause will safely dispose of objects that might/might not implement IDisposable.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/25/Effective C Sharp -- 11. Utilize using and try and finally for Resource Cleanup/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1874,7 +1887,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
